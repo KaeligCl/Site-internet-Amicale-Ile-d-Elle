@@ -29,16 +29,43 @@ header {
     box-sizing: border-box;
     position: sticky;
     top: 0;
-    background-color: rgba(22, 104, 12, 1);
+    background-color: #55b672;
     gap: 0;
 }
 
+.Tete {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Important */
+    width: 100%; /* Doit prendre toute la largeur */
+    padding: 10px 0;
+}
+
+.Logo-Container, .Empty-Space {
+    flex: 1; /* Ils vont "pousser" avec la même force des deux côtés */
+    display: flex;
+}
+
+.Logo-Container {
+    justify-content: flex-end;
+    width: auto;
+    height: 80px;
+
+}
+
+.Empty-Space {
+    justify-content: flex-end;
+}
+
 header h1 {
+    flex: 0 0 auto; 
     font-family: Cinzel, serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    text-align: center;
+    margin-bottom: 0px;
 }
 
 h1 .TitreL1 {
@@ -53,10 +80,32 @@ h1 .TitreL2 {
 
 }
 
-.LogoNavBar {
-    width: 100px;
-    height: auto;
-    margin: 0;
+.NavBar {
+    width: 100%;
+    height: 40px; 
+    display: flex;
+    align-items: center;
+    justify-content: space-around; 
+    color: black;
+    gap: 0; 
 }
+
+.NavBar a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
+.NavBar a:hover
+{
+    text-decoration: underline;
+}
+
+.NavBar .active {
+    text-decoration: underline;
+    font-weight: bolder;
+}
+
+
 
 
