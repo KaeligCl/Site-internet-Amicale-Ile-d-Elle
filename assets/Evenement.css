@@ -1,25 +1,66 @@
 main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 5px 20px;
 }
 
-.evenements {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px; 
+main > h2 {
+    text-align: center;
+
 }
 
 .event {
     display: flex;
-    flex-direction: column;
-    border: 4px solid #ccc;
-    border-radius: 10px;
-    width: 700px;
-    background-color: rgba(240, 240, 240, 0.856);
+    flex-direction: row;
+    align-items: center;
+    gap: 20px; 
+    width: 100%;
 }
 
-.event > * {
-    margin-left: 5px;
+.evenements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0px 3%;
+    align-items: center;
+}
+
+@media (max-width: 1300px) {
+  .evenements {
+    grid-template-columns: repeat(2, 1fr); /* 1 colonne sur mobile */
+  }
+}
+
+
+@media (max-width: 768px) {
+  .evenements {
+    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+  }
+}
+
+.event > .date {
+    width: 75px;
+    height: 75px;
+
+    border-radius: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.event:nth-child(10n+1) .date { background-color: #BDB2FF; border: 2px solid #BDB2FF; } 
+.event:nth-child(10n+2) .date { background-color: #FFADAD; border: 2px solid #FFADAD; } 
+.event:nth-child(10n+3) .date { background-color: #9BF6FF; border: 2px solid #9BF6FF; } 
+.event:nth-child(10n+4) .date { background-color: #FDFFB6; border: 2px solid #FDFFB6; } 
+.event:nth-child(10n+5) .date { background-color: #FFC6FF; border: 2px solid #FFC6FF; } 
+.event:nth-child(10n+6) .date { background-color: #CAFFBF; border: 2px solid #CAFFBF; } 
+.event:nth-child(10n+7) .date { background-color: #FFD6A5; border: 2px solid #FFD6A5; } 
+.event:nth-child(10n+8) .date { background-color: #E2ECE9; border: 2px solid #E2ECE9; }
+.event:nth-child(10n+9) .date { background-color: #A0C4FF; border: 2px solid #A0C4FF; } 
+.event:nth-child(10n+10) .date { background-color: #90DBF4; border: 2px solid #90DBF4; } 
+
+.date > * {
+    margin: 0;
+}
+
+.event > .contenu {
+    width: 70%;
 }
