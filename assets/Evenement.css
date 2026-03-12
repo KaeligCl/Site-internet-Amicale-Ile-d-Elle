@@ -1,12 +1,3 @@
-main {
-    margin: 5px 20px;
-}
-
-main > h2 {
-    text-align: center;
-
-}
-
 .event {
     display: flex;
     flex-direction: row;
@@ -31,14 +22,14 @@ main > h2 {
 
 @media (max-width: 768px) {
   .evenements {
-    grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    grid-template-columns: 1fr; 
   }
 }
 
 .event > .date {
     width: 75px;
     height: 75px;
-
+    font-family: Bebas;
     border-radius: 800px;
     display: flex;
     flex-direction: column;
@@ -46,16 +37,16 @@ main > h2 {
     align-items: center;
 }
 
-.event:nth-child(10n+1) .date { background-color: #BDB2FF; border: 2px solid #BDB2FF; } 
-.event:nth-child(10n+2) .date { background-color: #FFADAD; border: 2px solid #FFADAD; } 
-.event:nth-child(10n+3) .date { background-color: #9BF6FF; border: 2px solid #9BF6FF; } 
-.event:nth-child(10n+4) .date { background-color: #FDFFB6; border: 2px solid #FDFFB6; } 
-.event:nth-child(10n+5) .date { background-color: #FFC6FF; border: 2px solid #FFC6FF; } 
-.event:nth-child(10n+6) .date { background-color: #CAFFBF; border: 2px solid #CAFFBF; } 
-.event:nth-child(10n+7) .date { background-color: #FFD6A5; border: 2px solid #FFD6A5; } 
-.event:nth-child(10n+8) .date { background-color: #E2ECE9; border: 2px solid #E2ECE9; }
-.event:nth-child(10n+9) .date { background-color: #A0C4FF; border: 2px solid #A0C4FF; } 
-.event:nth-child(10n+10) .date { background-color: #90DBF4; border: 2px solid #90DBF4; } 
+.event:nth-child(10n+1) .date { background-color: #BDB2FF; border: 2px solid #BDB2FF; box-shadow: 3px 3px 1px #8A7EDD; } 
+.event:nth-child(10n+2) .date { background-color: #FFADAD; border: 2px solid #FFADAD; box-shadow: 3px 3px 1px #EE8585; } 
+.event:nth-child(10n+3) .date { background-color: #9BF6FF; border: 2px solid #9BF6FF; box-shadow: 3px 3px 1px #5CD6E0; } 
+.event:nth-child(10n+4) .date { background-color: #FDFFB6; border: 2px solid #FDFFB6; box-shadow: 3px 3px 1px #E6E88E; } 
+.event:nth-child(10n+5) .date { background-color: #FFC6FF; border: 2px solid #FFC6FF; box-shadow: 3px 3px 1px #E096E0; } 
+.event:nth-child(10n+6) .date { background-color: #CAFFBF; border: 2px solid #CAFFBF; box-shadow: 3px 3px 1px #97E08B; } 
+.event:nth-child(10n+7) .date { background-color: #FFD6A5; border: 2px solid #FFD6A5; box-shadow: 3px 3px 1px #EBA860; } 
+.event:nth-child(10n+8) .date { background-color: #E2ECE9; border: 2px solid #E2ECE9; box-shadow: 3px 3px 1px #BCCAC4; } 
+.event:nth-child(10n+9) .date { background-color: #A0C4FF; border: 2px solid #A0C4FF; box-shadow: 3px 3px 1px #7098E0; } 
+.event:nth-child(10n+10) .date{ background-color: #90DBF4; border: 2px solid #90DBF4; box-shadow: 3px 3px 1px #5EB5D1; }
 
 .date > * {
     margin: 0;
@@ -63,4 +54,9 @@ main > h2 {
 
 .event > .contenu {
     width: 70%;
+}
+
+.date > .jour {
+    font-size: xx-large;
+    margin-bottom: 0;
 }

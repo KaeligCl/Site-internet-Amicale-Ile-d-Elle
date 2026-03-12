@@ -1,23 +1,21 @@
 @font-face {
     font-family: Cinzel;
-    src: url("assets/Cinzel/Cinzel-VariableFont_wght.ttf");
+    src: url("font/Cinzel/Cinzel-VariableFont_wght.ttf");
 }
 
+@font-face {
+    font-family: Bebas;
+    src: url("font/Bebas_Neue/BebasNeue-Regular.ttf");
+}
 
 html, body{
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     width: 100%;            
     margin: 0;
     padding: 0;
-    gap: 0;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-}
-
-
-body {
-    height: 200vh;
+    gap: 0; 
+    overflow: hidden;
 }
 
 header {
@@ -28,10 +26,9 @@ header {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-    position: sticky;
-    top: 0;
+    height: 140px;
     background-color: #55b672;
-    gap: 0;
+    z-index: 200;
 }
 
 .Tete {
@@ -52,8 +49,9 @@ header {
     justify-content: flex-end;
     width: auto;
     height: 80px;
-
+    overflow: visible;
 }
+
 
 .Empty-Space {
     justify-content: flex-end;
@@ -88,7 +86,6 @@ h1 .TitreL2 {
     align-items: center;
     justify-content: space-around; 
     color: black;
-    gap: 0; 
 }
 
 .NavBar a {
@@ -105,6 +102,47 @@ h1 .TitreL2 {
 .NavBar .active {
     text-decoration: underline;
     font-weight: bolder;
+}
+
+main {
+    display: flex;
+    flex-direction: row; 
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: calc(100vh - 140px);
+}
+
+main > aside {
+    margin: 0;           
+    padding: 20px; 
+    background-color: rgba(215, 218, 187, 0.4);
+    min-width: 100px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+main > aside h2 {
+    font-family: Bebas;
+    margin: 0;
+    text-transform: uppercase;
+    transform: rotate(-180deg);
+    writing-mode: vertical-rl;
+    font-size: 80px;
+    letter-spacing: 4px;
+}
+
+main > section {
+    margin: 0;
+    padding: 20px;
+    flex-grow: 1; 
+    box-sizing: border-box; 
+    background-image: linear-gradient(192deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 45%, rgba(215, 218, 187, 0.4) 45%, rgb(215, 218, 187, 0.4) 100%);
+    background-attachment: fixed;
+    overflow-y: auto;
+    scrollbar-width: none;
 }
 
 
