@@ -27,7 +27,7 @@ header {
     width: 100%;
     box-sizing: border-box;
     height: 140px;
-    background-color: #55b672;
+    background-color: white;
     z-index: 200;
 }
 
@@ -88,6 +88,15 @@ h1 .TitreL2 {
     color: black;
 }
 
+.box {
+    border-bottom: 2px solid rgb(215, 218, 187, 0.4); /* Bas */
+    width: 25%;
+    height: 95%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
 .NavBar a {
     text-decoration: none;
     color: inherit;
@@ -97,10 +106,10 @@ h1 .TitreL2 {
 .NavBar a:hover
 {
     text-decoration: underline;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2); /* Ombre intérieure */
 }
 
 .NavBar .active {
-    text-decoration: underline;
     font-weight: bolder;
 }
 
@@ -116,7 +125,7 @@ main {
 main > aside {
     margin: 0;
     padding: 15px;
-    background-color: rgba(215, 218, 187, 0.4);
+    background-color: rgba(215, 218, 187, 1);
     min-width: 100px;
     display: flex;
     flex-direction: column;
