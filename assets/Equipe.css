@@ -1,3 +1,15 @@
+.equipe {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px 3%;
+}
+
+@media (max-width: 1400px) {
+  .equipe {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+}
+
 .membre {
     display: flex;
     flex-direction: row;

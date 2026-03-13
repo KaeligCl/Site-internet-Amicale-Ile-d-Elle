@@ -162,7 +162,7 @@ main > section {
 
 
 /* footer */
-.site-footer {
+footer {
     background-color: #333;
     color: #fff; 
     height: 60px;
