@@ -1,28 +1,60 @@
-
-
 .membre {
     display: flex;
     flex-direction: row;
     gap: 20px;
     align-items: center;
+    background: azure; 
+    padding: 20px;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    margin-bottom: 20px;
 }
 
-.membre > img {
-    border: 2px solid black;
-    border-radius: 100%;
+.membre:nth-child(10n+1)  { border-left: 8px solid #BDB2FF} 
+.membre:nth-child(10n+2)  { border-left: 8px solid #FFADAD} 
+.membre:nth-child(10n+3)  { border-left: 8px solid #9BF6FF} 
+.membre:nth-child(10n+4)  { border-left: 8px solid #FDFFB6} 
+.membre:nth-child(10n+5)  { border-left: 8px solid #FFC6FF} 
+.membre:nth-child(10n+6)  { border-left: 8px solid #CAFFBF} 
+.membre:nth-child(10n+7)  { border-left: 8px solid #FFD6A5} 
+.membre:nth-child(10n+8)  { border-left: 8px solid #E2ECE9} 
+.membre:nth-child(10n+9)  { border-left: 8px solid #A0C4FF} 
+.membre:nth-child(10n+10) { border-left: 8px solid #90DBF4}
+
+.membre img {
+    border-radius: 50%;
     height: 150px;
     width: 150px;
+    object-fit: cover; 
+    flex-shrink: 0; 
 }
 
-.equipe {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0px 3%;
-    align-items: center;
+.membre:nth-child(10n+1)  img { border: 2px solid #BDB2FF} 
+.membre:nth-child(10n+2)  img { border: 2px solid #FFADAD} 
+.membre:nth-child(10n+3)  img { border: 2px solid #9BF6FF} 
+.membre:nth-child(10n+4)  img { border: 2px solid #FDFFB6} 
+.membre:nth-child(10n+5)  img { border: 2px solid #FFC6FF} 
+.membre:nth-child(10n+6)  img { border: 2px solid #CAFFBF} 
+.membre:nth-child(10n+7)  img { border: 2px solid #FFD6A5} 
+.membre:nth-child(10n+8)  img { border: 2px solid #E2ECE9} 
+.membre:nth-child(10n+9)  img { border: 2px solid #A0C4FF} 
+.membre:nth-child(10n+10) img { border: 2px solid #90DBF4}
+
+
+.membre h3 {
+    margin: 0 0 5px 0;
+    font-family: Cinzel, serif;
 }
 
-@media (max-width: 840px) {
-  .equipe {
-    grid-template-columns: repeat(1, 1fr); /* 1 colonne sur mobile */
-  }
+.membre .role {
+    margin: 0 0 10px 0;
+    color: #797979;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.membre .description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
 }

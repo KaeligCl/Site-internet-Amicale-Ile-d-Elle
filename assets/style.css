@@ -75,7 +75,7 @@ h1 .TitreL1 {
 h1 .TitreL2 {
     font-size: small;
     text-transform: uppercase; letter-spacing: 0.15em; font-weight: bolder;
-    color : rgb(179, 179, 179);
+    color : rgb(197, 197, 197);
 
 }
 
@@ -114,24 +114,39 @@ main {
 }
 
 main > aside {
-    margin: 0;           
-    padding: 20px; 
+    margin: 0;
+    padding: 15px;
     background-color: rgba(215, 218, 187, 0.4);
-    min-width: 100px; 
+    min-width: 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
+    transform: rotate(-180deg);
+    writing-mode: vertical-rl;
+    align-items: flex-end;
+}
+
+.titre {
+    display: flex;
+    flex-direction: column;
 }
 
 main > aside h2 {
     font-family: Bebas;
     margin: 0;
     text-transform: uppercase;
-    transform: rotate(-180deg);
-    writing-mode: vertical-rl;
     font-size: 80px;
     letter-spacing: 4px;
+    line-height: 1;
+}
+
+main > aside h6 {
+    font-family: Bebas;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 4px;
+    color: rgb(121, 121, 121);
+    margin-top: 5px ;
 }
 
 main > section {
@@ -149,24 +164,24 @@ main > section {
 /* footer */
 .site-footer {
     background-color: #333;
-    color: #fff; /* Couleur de texte par défaut blanche */
+    color: #fff; 
     height: 60px;
-    display: flex; /* Indispensable pour aligner le contenu */
-    align-items: center; /* Centre verticalement */
+    display: flex; 
+    align-items: center;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* S'assurer qu'il prend toute la largeur dispo */
+    width: 100%; 
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
 .footer-content a {
-    color: #fff; /* Changé de noir à blanc pour être visible */
+    color: #fff; 
     text-decoration: none;
     font-size: 16px;
 }
@@ -178,11 +193,11 @@ main > section {
 }
 
 .social-links a {
-    color: #fff; /* Assure que les icônes/liens sont blancs */
+    color: #fff; 
     font-size: 24px;
     transition: color 0.3s;
 }
 
-.social-links a:hover {
+.social-links a:hover, .footer-content a:hover {
     color: #00d4ff; 
 }

@@ -9,18 +9,18 @@
 .evenements {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0px 3%;
+    gap: 10px 3%;
     align-items: center;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1400px) {
   .evenements {
     grid-template-columns: repeat(2, 1fr); /* 1 colonne sur mobile */
   }
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .evenements {
     grid-template-columns: 1fr; 
   }
@@ -55,6 +55,10 @@
 .event > .contenu {
     width: 70%;
 }
+
+.contenu > * {
+  margin: 10px;
+} 
 
 .date > .jour {
     font-size: xx-large;
