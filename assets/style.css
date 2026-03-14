@@ -506,3 +506,31 @@ footer {
     transform: scale(1.1);
     background-color: #A0C4FF; 
 }
+
+.legales {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
+}
+
+.bloc-legal {
+    background: rgba(255, 255, 255, 0.6); /* Fond blanc léger */
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 8px solid #E2ECE9; /* Gris bleuté de votre palette */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.bloc-legal h3 {
+    font-family: Cinzel, serif;
+    margin-top: 0;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.bloc-legal p {
+    line-height: 1.6;
+    color: #555;
+    margin: 5px 0;
+}
