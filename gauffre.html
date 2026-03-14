@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location - Appareil à Gaufres - Amicale Laïque</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="Location.html" class="back-arrow" title="Retour aux locations">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </a>
+    </nav>
+
+    <header>
+        <div class="Tete">
+            <div class="Logo-Container">
+                <img src="picture/LOGO.png" class="LogoHead" alt="Logo">
+            </div>
+            <h1>
+                <span class="TitreL1">Amicale Laïque</span>
+                <span class="TitreL2">L'Île d'Elle</span>
+            </h1>
+            <div class="Empty-Space"></div> 
+        </div>
+    </header>
+
+    <main style="height: auto; display: block;">
+        <div class="container-detail">
+            
+            <section class="product-info">
+                <img src="picture/AppareilGauffre.png" alt="Appareil à gaufres">
+                <h2>Appareil à gaufres double</h2>
+                <p class="price-tag">Prix plein : 75€ / membre : 25€</p>
+                <p style="color: #666; line-height: 1.6;">
+                    Idéal pour vos kermesses, anniversaires ou fêtes de famille. 
+                    Puissance professionnelle pour des gaufres croustillantes en quelques minutes.
+                </p>
+            </section>
+
+            <section class="booking-form">
+                <h3>Réserver ce matériel</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tel">Numéro de téléphone</label>
+                        <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Envoyer la demande</button>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <a href="/mentions-legales">Mentions légales</a>
+            <div class="social-links">
+                <a href="https://www.facebook.com/..." target="_blank" aria-label="Facebook">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                </div>
+        </div>
+    </footer>
+
+</body>
+</html>
