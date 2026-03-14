@@ -16,6 +16,8 @@ html, body{
     padding: 0;
     gap: 0; 
     overflow: hidden;
+    overflow-y: auto !important;
+    height: auto !important;
 }
 
 header {
