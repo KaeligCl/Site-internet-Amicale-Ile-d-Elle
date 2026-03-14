@@ -202,6 +202,7 @@ main {
     color: black;
     border-radius: 40px;
     padding: 5px;
+    transition: 0.3s ;
 }
 
 .event:hover {
@@ -408,4 +409,100 @@ footer {
 
 .social-links a:hover, .footer-content a:hover {
     color: #00d4ff; 
+}
+
+/* Présentation */ 
+
+/* Section Présentation */
+.presentation {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-text h3 {
+    font-family: Cinzel, serif;
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #CAFFBF;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    background-color: azure;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item .nombre {
+    display: block;
+    font-family: Bebas;
+    font-size: 3rem;
+    color: #A0C4FF; 
+}
+
+.valeurs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.valeur-card {
+    border-left: 8px solid #BDB2FF; 
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.valeur-card .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}
+
+.rejoindre-asso {
+    text-align: center;
+    background-color: #E2ECE9; 
+    padding: 40px;
+    border-radius: 30px;
+    margin-top: 50px;
+}
+
+.rejoindre-asso > .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: Bebas;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    margin: 0 5px;
+}
+
+.rejoindre-asso > .btn:hover {
+    transform: scale(1.1);
+    background-color: #A0C4FF; 
 }
