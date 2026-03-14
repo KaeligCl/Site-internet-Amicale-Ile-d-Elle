@@ -415,9 +415,6 @@ footer {
     color: #00d4ff; 
 }
 
-/* --- Styles Page Détail Location --- */
-
-/* Conteneur principal flexible */
 .container-detail {
     max-width: 1000px;
     margin: 40px auto;
@@ -425,10 +422,8 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 30px;
-    /* On annule l'overflow hidden du body pour cette page si nécessaire */
 }
 
-/* Flèche de retour */
 .back-nav {
     position: fixed;
     top: 20px;
@@ -454,7 +449,6 @@ footer {
     background-color: #f8f8f8;
 }
 
-/* Carte Produit (Gauche) */
 .product-info {
     flex: 1;
     background: rgba(255, 255, 255, 0.8);
@@ -488,14 +482,13 @@ footer {
     margin-bottom: 20px;
 }
 
-/* Formulaire (Droite) */
 .booking-form {
     flex: 1.2;
     background: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    border-left: 8px solid #BDB2FF; /* Couleur mauve de votre charte */
+    border-left: 8px solid #BDB2FF; 
 }
 
 .booking-form h3 {
@@ -554,7 +547,6 @@ footer {
     box-shadow: 0 5px 15px rgba(189, 178, 255, 0.4);
 }
 
-/* Ajustements Responsive */
 @media (min-width: 850px) {
     .container-detail {
         flex-direction: row;
