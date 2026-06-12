@@ -109,7 +109,7 @@ h1 .TitreL2 {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.NavBar a .active {
+.NavBar a.active {
     font-weight: bolder;
 }
 

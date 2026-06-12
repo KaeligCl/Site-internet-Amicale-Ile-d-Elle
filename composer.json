@@ -2,7 +2,9 @@
     "name": "ceis/site-internet-amicale-ile-d-elle",
     "description": "Site internet de l'Amicale de l'Ile d'Elle",
     "type": "project",
+    "license": "proprietary",
     "require": {
+        "php": ">=8.2",
         "twig/twig": "^3.0"
     },
     "autoload": {
