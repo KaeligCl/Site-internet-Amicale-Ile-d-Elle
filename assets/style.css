@@ -90,12 +90,7 @@ h1 .TitreL2 {
     color: black;
 }
 
-
-
-.NavBar a {
-    text-decoration: none;
-    color: inherit;
-    font-weight: 500;
+.box {
     border-bottom: 2px solid rgb(236, 239, 230);
     width: 25%;
     height: 95%;
@@ -104,27 +99,28 @@ h1 .TitreL2 {
     align-items: center; 
 }
 
+.NavBar a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+}
+
 .NavBar a:hover
 {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.NavBar a.active {
+.NavBar .active {
     font-weight: bolder;
 }
 
 main {
-    /* Style */
-    background-image: linear-gradient(192deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 45%, rgb(236, 239, 230) 45%, rgb(236, 239, 230) 100%);
-    background-attachment: fixed;
-
-    /* Propriétés */
     display: flex;
     flex-direction: row; 
-    height: calc(100vh - 140px - 50px);
     width: 100%;
     padding: 0;
     margin: 0;
+    height: calc(100vh - 140px - 60px);
 }
 
 main > aside {
@@ -170,6 +166,11 @@ main > section {
     box-sizing: border-box; 
     overflow-y: auto;
     scrollbar-width: none;
+}
+
+main {
+    background-image: linear-gradient(192deg, rgb(255, 255, 255) 0%, rgb(255, 255, 255) 45%, rgb(236, 239, 230) 45%, rgb(236, 239, 230) 100%);
+    background-attachment: fixed;
 }
 
 /* évènements */
@@ -375,9 +376,147 @@ a {
     color: black;
 }
 
+
+/* footer */
+footer {
+    background-color: #333;
+    color: #fff; 
+    height: 60px;
+    display: flex; 
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content a {
+    color: #fff; 
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.social-links a {
+    color: #fff; 
+    font-size: 24px;
+    transition: color 0.3s;
+}
+
+.social-links a:hover, .footer-content a:hover {
+    color: #00d4ff; 
+}
+
+/* Présentation */ 
+
+/* Section Présentation */
+.presentation {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro-text h3 {
+    font-family: Cinzel, serif;
+    font-size: 2rem;
+    color: #333;
+    border-bottom: 3px solid #CAFFBF;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.stat-item {
+    background-color: azure;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-item .nombre {
+    display: block;
+    font-family: Bebas;
+    font-size: 3rem;
+    color: #A0C4FF; 
+}
+
+.valeurs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.valeur-card {
+    border-left: 8px solid #BDB2FF; 
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.valeur-card .icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .stats-grid { grid-template-columns: 1fr; }
+}
+
+.rejoindre-asso {
+    text-align: center;
+    background-color: #E2ECE9; 
+    padding: 40px;
+    border-radius: 30px;
+    margin-top: 50px;
+}
+
+.rejoindre-asso > .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: Bebas;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    margin: 5px 5px;
+}
+
+.rejoindre-asso > .btn:hover {
+    transform: scale(1.1);
+    background-color: #A0C4FF; 
+}
+
 .container-detail {
     max-width: 1000px;
-    margin:  auto;
+    margin: 40px auto;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -525,143 +664,6 @@ a {
         font-size: 1.5rem;
     }
 }
-
-/* footer */
-footer {
-    background-color: #333;
-    color: #fff; 
-    height: 50px;
-    display: flex; 
-    align-items: center;
-    bottom: 0;
-}
-
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; 
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.footer-content a {
-    color: #fff; 
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.social-links {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.social-links a {
-    color: #fff; 
-    font-size: 24px;
-    transition: color 0.3s;
-}
-
-.social-links a:hover, .footer-content a:hover {
-    color: #00d4ff; 
-}
-
-/* Présentation */
-.presentation {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.intro-text h3 {
-    font-family: Cinzel, serif;
-    font-size: 2rem;
-    color: #333;
-    border-bottom: 3px solid #CAFFBF;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.intro-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #444;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.stat-item {
-    background-color: azure;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.stat-item .nombre {
-    display: block;
-    font-family: Bebas;
-    font-size: 3rem;
-    color: #A0C4FF; 
-}
-
-.valeurs {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.valeur-card {
-    border-left: 8px solid #BDB2FF; 
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.valeur-card .icon {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-@media screen and (max-width: 768px) {
-    .stats-grid { grid-template-columns: 1fr; }
-}
-
-.rejoindre-asso {
-    text-align: center;
-    background-color: #E2ECE9; 
-    padding: 40px;
-    border-radius: 30px;
-    margin-top: 50px;
-}
-
-.rejoindre-asso > .btn {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    border-radius: 50px;
-    font-family: Bebas;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    margin: 5px 5px;
-}
-
-.rejoindre-asso > .btn:hover {
-    transform: scale(1.1);
-    background-color: #BDB2FF; 
-}
-
 
 .legales {
     display: flex;
