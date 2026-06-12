@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+<nav class="NavBar">
+    <a class="box" href="/">Qui sommes nous ?</a>
+    <a class="box" href="/evenements">Évenements</a>
+    <a class="box" href="/equipe">Équipe</a>
+    <a class="box" href="/location">Location</a>
+</nav>
+{% endblock %}
+
+
+{% block main %}
+    <aside>
+        <div class="titre">
+            <h2>Mentions Légales</h2>
+            <h6>Transparence</h6>
+        </div>
+    </aside>
+
+    <section class="legales">
+        <div class="bloc-legal">
+            <h3>Éditeur du site</h3>
+            <p><strong>Nom de l'association :</strong> Amicale Laïque de l'Île d'Elle</p>
+            <p><strong>Statut :</strong> Association Loi 1901 (à but non lucratif)</p>
+            <p><strong>Adresse du siège :</strong> [INSÉRER ADRESSE COMPLÈTE ]</p>
+            <p><strong>Directeur de la publication :</strong> [INSÉRER NOM DE LA PRÉSIDENTE ]</p>
+            <p><strong>Email :</strong> [INSÉRER EMAIL DE L'ASSO]</p>
+        </div>
+
+        <div class="bloc-legal">
+            <h3>Hébergement</h3>
+            <p><strong>Hébergeur :</strong> [INSÉRER NOM DE L'HÉBERGEUR]</p>
+            <p><strong>Adresse :</strong> [INSÉRER ADRESSE DE L'HÉBERGEUR]</p>
+        </div>
+
+        <div class="bloc-legal">
+            <h3>Propriété intellectuelle</h3>
+            <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés, y compris pour les documents téléchargeables et les représentations iconographiques et photographiques.</p>
+        </div>
+
+        <div class="bloc-legal">
+            <h3>Données personnelles (RGPD)</h3>
+            <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant. Pour l'exercer, contactez-nous à l'adresse email citée plus haut.</p>
+        </div>
+
+        <div class="bloc-legal">
+            <h3>Dons et Paiements</h3>
+            <p>Les dons effectués via le bouton "Faire un don" sont redirigés vers la plateforme sécurisée <strong>HelloAsso</strong>. L'Amicale Laïque ne collecte ni ne stocke aucune coordonnée bancaire. Nous vous invitons à consulter les conditions générales de HelloAsso lors de votre transaction.</p>
+        </div>
+
+        <div class="bloc-legal">
+            <h3>Gestion des demandes de location</h3>
+            <p>Les informations collectées lors des demandes de location (coordonnées) sont exclusivement destinées à la gestion administrative des contrats et à l'organisation de la remise du matériel. Elles ne sont en aucun cas cédées ou vendues à des tiers.</p>
+        </div>
+    </section>
+{% endblock %}
