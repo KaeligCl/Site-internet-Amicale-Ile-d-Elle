@@ -184,6 +184,18 @@ main {
 
 /* évènements */
 
+
+
+.titre-section {
+    font-family: Cinzel, serif;
+    font-size: 2rem;
+    color: #333;
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-top: 0;
+    width: 100%;
+}
+
 .event {
     display: flex;
     flex-direction: row;
