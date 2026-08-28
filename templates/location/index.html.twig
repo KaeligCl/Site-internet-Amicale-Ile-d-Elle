@@ -16,7 +16,7 @@
         <!-- Bouton pour ouvrir la pop-up -->
             <div id="open-modal-btn" class="materiel">
                 <img
-                    src="{{ asset('picture/AppareilGauffre.png') }}"
+                    src="{{ asset(equipement.image) }}"
                     alt="{{ equipement.nom }}"
                 >
 
@@ -31,7 +31,7 @@
                 
                 <div class="container-detail">
                     <section class="product-info">
-                        <img src="{{ asset(equipement.image) }}" alt="{{ equipement.nom }}">
+                        <img src="{{ asset( equipement.image ) }}" alt="{{ equipement.nom }}">
                         <h2>{{ equipement.nom }}</h2>
                         <p class="price-tag">Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
                         <p style="color: #666; line-height: 1.6;">
