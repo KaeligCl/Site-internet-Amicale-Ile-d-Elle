@@ -13,64 +13,62 @@
 
     <section class="location">
         {% for equipement in equipements %}
-        <!-- Bouton pour ouvrir la pop-up -->
-            <div id="open-modal-btn" class="materiel">
-                <img
-                    src="{{ asset(equipement.image) }}"
-                    alt="{{ equipement.nom }}"
-                >
-
+            <!-- On utilise des classes et des attributs data-* pour stocker les infos -->
+            <div class="materiel open-modal-btn" 
+                 data-nom="{{ equipement.nom }}"
+                 data-image="{{ asset(equipement.image) }}"
+                 data-prix-plein="{{ equipement.prixPlein }}"
+                 data-prix-membre="{{ equipement.prixMembre }}"
+                 data-description="{{ equipement.description }}">
+                
+                <img src="{{ asset(equipement.image) }}" alt="{{ equipement.nom }}">
                 <h3>{{ equipement.nom }}</h3>
                 <p>Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
             </div>
+        {% endfor %}
+    </section>
 
-        <!-- Arrière-plan sombre + Fenêtre modale -->
-        <div id="modal-overlay" class="modal-overlay hidden">
-            <div class="modal-card">
-                <button id="close-modal-btn" class="close-btn" aria-label="Fermer">&times;</button>
-                
-                <div class="container-detail">
-                    <section class="product-info">
-                        <img src="{{ asset( equipement.image ) }}" alt="{{ equipement.nom }}">
-                        <h2>{{ equipement.nom }}</h2>
-                        <p class="price-tag">Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
-                        <p style="color: #666; line-height: 1.6;">
-                            {{ equipement.description }}
-                        </p>
-                    </section>
+    <!-- La modale est Hors de la boucle (présente une seule fois) -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button id="close-modal-btn" class="close-btn" aria-label="Fermer">&times;</button>
+            
+            <div class="container-detail">
+                <section class="product-info">
+                    <img id="modal-img" src="" alt="">
+                    <h2 id="modal-title"></h2>
+                    <p id="modal-price" class="price-tag"></p>
+                    <p id="modal-description" style="color: #666; line-height: 1.6;"></p>
+                </section>
 
-                    <section class="booking-form">
-                        <h3>Réserver ce matériel</h3>
-                        <form action="#" method="POST">
-                            <div class="form-group">
-                                <label for="nom">Nom</label>
-                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-                            </div>
+                <section class="booking-form">
+                    <h3>Réserver ce matériel</h3>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="prenom">Prénom</label>
-                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
 
-                            <div class="form-group">
-                                <label for="tel">Numéro de téléphone</label>
-                                <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
-                            </div>
+                        <div class="form-group">
+                            <label for="tel">Numéro de téléphone</label>
+                            <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+                        </div>
 
-                            <button type="submit" class="submit-btn">Envoyer la demande</button>
-                        </form>
-                    </section>
-                </div>
-
+                        <button type="submit" class="submit-btn">Envoyer la demande</button>
+                    </form>
+                </section>
             </div>
         </div>
-        {% endfor %}
-
-    </section>
+    </div>
 </main>
 {% endblock %}
