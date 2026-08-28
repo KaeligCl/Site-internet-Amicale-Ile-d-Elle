@@ -2,17 +2,19 @@
 
 namespace App\Controller;
 
+use App\Repository\EquipementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Attribute\Route; // Attention : Attribute pour Symfony 6/7
 
-final class LocationController extends AbstractController
+class LocationController extends AbstractController
 {
     #[Route('/location', name: 'app_location')]
-    public function index(): Response
+    public function index(EquipementRepository $equipementRepository): Response
     {
         return $this->render('location/index.html.twig', [
             'controller_name' => 'LocationController',
+            'equipements' => $equipementRepository->findBy(['encoreDisponible' => true]),
         ]);
     }
 }

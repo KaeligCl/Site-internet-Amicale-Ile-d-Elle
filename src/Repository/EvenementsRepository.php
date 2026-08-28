@@ -31,6 +31,18 @@ class EvenementsRepository extends ServiceEntityRepository
     //        ;
     //    }
 
+         public function countEventsThisYear(): int
+        {
+            $currentYear = (new \DateTime())->format('Y');
+
+            return (int) $this->createQueryBuilder('e')
+                ->select('COUNT(e.id)')
+                ->where('YEAR(e.dateDebut) = :year')
+                ->setParameter('year', $currentYear)
+                ->getQuery()
+                ->getSingleScalarResult();
+        }
+
     //    public function findOneBySomeField($value): ?Evenements
     //    {
     //        return $this->createQueryBuilder('e')

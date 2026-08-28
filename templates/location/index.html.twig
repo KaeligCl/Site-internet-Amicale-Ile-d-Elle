@@ -12,164 +12,65 @@
     </aside>
 
     <section class="location">
-        <a href="#">
-            <div class="materiel">
+        {% for equipement in equipements %}
+        <!-- Bouton pour ouvrir la pop-up -->
+            <div id="open-modal-btn" class="materiel">
                 <img
                     src="{{ asset('picture/AppareilGauffre.png') }}"
-                    alt="Appareil à gaufres double"
+                    alt="{{ equipement.nom }}"
                 >
 
-                <h3>Appareil à gaufres double</h3>
-                <p>Prix plein : 75€ / membre : 25€</p>
+                <h3>{{ equipement.nom }}</h3>
+                <p>Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
             </div>
-        </a>
 
-        <div class="materiel">
-            <img src="{{ asset('picture/tables.jpg') }}" alt="Tables">
-            <h3>Tables pliantes</h3>
-            <p>Prix plein : 30€ / membre : 10€</p>
-        </div>
+        <!-- Arrière-plan sombre + Fenêtre modale -->
+        <div id="modal-overlay" class="modal-overlay hidden">
+            <div class="modal-card">
+                <button id="close-modal-btn" class="close-btn" aria-label="Fermer">&times;</button>
+                
+                <div class="container-detail">
+                    <section class="product-info">
+                        <img src="{{ asset(equipement.image) }}" alt="{{ equipement.nom }}">
+                        <h2>{{ equipement.nom }}</h2>
+                        <p class="price-tag">Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
+                        <p style="color: #666; line-height: 1.6;">
+                            {{ equipement.description }}
+                        </p>
+                    </section>
 
-        <div class="materiel">
-            <img src="{{ asset('picture/chaises.jpg') }}" alt="Chaises">
-            <h3>Chaises pliantes (lot de 10)</h3>
-            <p>Prix plein : 50€ / membre : 15€</p>
-        </div>
+                    <section class="booking-form">
+                        <h3>Réserver ce matériel</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="nom">Nom</label>
+                                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                            </div>
 
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/machine_a_cafe.jpg') }}"
-                alt="Machine à café"
-            >
-            <h3>Machine à café professionnelle</h3>
-            <p>Prix plein : 40€ / membre : 12€</p>
-        </div>
+                            <div class="form-group">
+                                <label for="prenom">Prénom</label>
+                                <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                            </div>
 
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/percolateur.jpg') }}"
-                alt="Percolateur"
-            >
-            <h3>Percolateur à café (10L)</h3>
-            <p>Prix plein : 60€ / membre : 20€</p>
-        </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                            </div>
 
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/video_projecteur.jpg') }}"
-                alt="Vidéoprojecteur"
-            >
-            <h3>Vidéoprojecteur avec écran</h3>
-            <p>Prix plein : 80€ / membre : 30€</p>
-        </div>
+                            <div class="form-group">
+                                <label for="tel">Numéro de téléphone</label>
+                                <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
+                            </div>
 
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/sonorisation.jpg') }}"
-                alt="Système de sonorisation"
-            >
-            <h3>Système de sonorisation portable</h3>
-            <p>Prix plein : 100€ / membre : 40€</p>
-        </div>
+                            <button type="submit" class="submit-btn">Envoyer la demande</button>
+                        </form>
+                    </section>
+                </div>
 
-        <div class="materiel">
-            <img src="{{ asset('picture/barnum.jpg') }}" alt="Barnum">
-            <h3>Barnum / Tente de réception (3x3m)</h3>
-            <p>Prix plein : 90€ / membre : 35€</p>
+            </div>
         </div>
+        {% endfor %}
 
-        <div class="materiel">
-            <img src="{{ asset('picture/friteuse.jpg') }}" alt="Friteuse">
-            <h3>Friteuse professionnelle</h3>
-            <p>Prix plein : 85€ / membre : 30€</p>
-        </div>
-
-        <div class="materiel">
-            <img src="{{ asset('picture/crepiere.jpg') }}" alt="Crêpière">
-            <h3>Crêpière double</h3>
-            <p>Prix plein : 65€ / membre : 20€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/machine_a_popcorn.jpg') }}"
-                alt="Machine à Pop-corn"
-            >
-            <h3>Machine à Pop-corn</h3>
-            <p>Prix plein : 55€ / membre : 18€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/barbe_a_papa.jpg') }}"
-                alt="Machine à Barbe à Papa"
-            >
-            <h3>Machine à Barbe à Papa</h3>
-            <p>Prix plein : 55€ / membre : 18€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/jeux_en_bois.jpg') }}"
-                alt="Jeux en bois"
-            >
-            <h3>Lot de jeux en bois géants</h3>
-            <p>Prix plein : 70€ / membre : 25€</p>
-        </div>
-
-        <div class="materiel">
-            <img src="{{ asset('picture/costumes.jpg') }}" alt="Costumes">
-            <h3>Assortiment de costumes enfants</h3>
-            <p>Prix plein : 45€ / membre : 15€</p>
-        </div>
-
-        <div class="materiel">
-            <img src="{{ asset('picture/karaoke.jpg') }}" alt="Matériel Karaoké">
-            <h3>Matériel Karaoké avec micros</h3>
-            <p>Prix plein : 70€ / membre : 25€</p>
-        </div>
-
-        <div class="materiel">
-            <img src="{{ asset('picture/congresso.jpg') }}" alt="Congresso">
-            <h3>Jeu de société géant "Congresso"</h3>
-            <p>Prix plein : 40€ / membre : 12€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/fontaine_chocolat.jpg') }}"
-                alt="Fontaine à chocolat"
-            >
-            <h3>Fontaine à chocolat</h3>
-            <p>Prix plein : 35€ / membre : 10€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/chauffage_exterieur.jpg') }}"
-                alt="Chauffage extérieur"
-            >
-            <h3>Chauffage d'extérieur (parasol chauffant)</h3>
-            <p>Prix plein : 95€ / membre : 35€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/micro_sans_fil.jpg') }}"
-                alt="Micro sans fil"
-            >
-            <h3>Microphone sans fil</h3>
-            <p>Prix plein : 25€ / membre : 8€</p>
-        </div>
-
-        <div class="materiel">
-            <img
-                src="{{ asset('picture/tires_bieres.jpg') }}"
-                alt="Tireuse à bière"
-            >
-            <h3>Tireuse à bière (fûts 5L)</h3>
-            <p>Prix plein : 60€ / membre : 20€</p>
-        </div>
     </section>
 </main>
 {% endblock %}

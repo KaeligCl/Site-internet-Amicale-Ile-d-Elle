@@ -458,12 +458,14 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.363);
     margin: auto;
     margin-top: 5px;
+
 }
 
 .materiel {
     width: 180px;
     border-radius: 20px;
     background-color: #9e9e9e51;
+    cursor: pointer;
 }
 
 .materiel > p,
@@ -496,13 +498,34 @@ a {
     display: none;
 }
 
+.btn-materiel{
+    /* Supprime le fond, les bordures et les ombres par défaut */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    
+    /* Corrige la typographie et l'alignement */
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    
+    /* Rend le bouton cliquable au survol */
+    cursor: pointer;
+    
+    /* Évite les comportements d'affichage bizarres du bouton */
+    outline: inherit;
+    display: inline-block;
+}
+
 /* La boîte blanche au centre */
 .modal-card {
     background: #ffffff;
     padding: 2rem;
     border-radius: 8px;
     width: 90%;
-    max-width: 500px;
+    max-width: 800px;
     position: relative;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
