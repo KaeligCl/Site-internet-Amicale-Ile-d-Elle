@@ -39,28 +39,35 @@
                     class="box {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}"
                     href="{{ path('app_home') }}"
                 >
-                    Qui sommes-nous ?
+                    <p>Qui sommes-nous ?</p>
                 </a>
 
                 <a
                     class="box {{ app.request.attributes.get('_route') == 'app_evenement' ? 'active' : '' }}"
                     href="{{ path('app_evenement') }}"
                 >
-                    Événements
+                    <p>Événements</p>
                 </a>
-
+                
+                <a
+                    class="box {{ app.request.attributes.get('_route') == 'app_reunion' ? 'active' : '' }}"
+                    href="{{ path('app_reunion') }}"
+                >
+                    <p>Réunions</p>
+                </a>
+                
                 <a
                     class="box {{ app.request.attributes.get('_route') == 'app_equipe' ? 'active' : '' }}"
                     href="{{ path('app_equipe') }}"
                 >
-                    Équipe
+                    <p>Équipe</p>
                 </a>
 
                 <a
                     class="box {{ app.request.attributes.get('_route') == 'app_location' ? 'active' : '' }}"
                     href="{{ path('app_location') }}"
                 >
-                    Location
+                    <p>Location</p>
                 </a>
             </nav>
         </header>
