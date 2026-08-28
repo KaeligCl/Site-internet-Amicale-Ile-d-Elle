@@ -644,6 +644,10 @@ footer {
 }
 
 .stat-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pousse le texte en haut et le chiffre en bas */
+    align-items: center;
     background-color: azure;
     padding: 30px;
     border-radius: 20px;
