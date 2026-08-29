@@ -32,11 +32,6 @@ class Evenements
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $lienEvent = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photoEvent = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $afficheEvent = null;
 
     public function getId(): ?int
     {
@@ -111,30 +106,6 @@ class Evenements
     public function setLienEvent(?string $lienEvent): static
     {
         $this->lienEvent = $lienEvent;
-
-        return $this;
-    }
-
-    public function getPhotoEvent(): ?string
-    {
-        return $this->photoEvent;
-    }
-
-    public function setPhotoEvent(?string $photoEvent): static
-    {
-        $this->photoEvent = $photoEvent;
-
-        return $this;
-    }
-
-    public function getAfficheEvent(): ?string
-    {
-        return $this->afficheEvent;
-    }
-
-    public function setAfficheEvent(?string $afficheEvent): static
-    {
-        $this->afficheEvent = $afficheEvent;
 
         return $this;
     }

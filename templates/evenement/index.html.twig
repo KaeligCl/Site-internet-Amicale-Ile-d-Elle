@@ -83,5 +83,37 @@
             </section>
 
         </section>
+
+        <div id="gallery-modal-overlay" class="gallery-modal-overlay hidden">
+            <div class="gallery-modal">
+                <div class="gallery-header">
+                    <h3 id="gallery-title">Photos de l'évènement</h3>
+                    <button id="close-gallery-btn" class="close-btn">&times;</button>
+                </div>
+                
+                <!-- Grille des photos -->
+                <div class="gallery-grid">
+                    <!-- Remplace par les vraies images de l'événement -->
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 1">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 2">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 3">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 4">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 5">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 6">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 7">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 8">
+                    <img src={{ asset('picture/pp.png') }} alt="Photo 9">
+                </div>
+                
+                <p class="gallery-footer-text">9 photos disponibles. Cliquez sur une photo pour l'agrandir.</p>
+            </div>
+        </div>
+
+                <!-- Modale pour l'image en plein écran -->
+        <div id="fullscreen-image-overlay" class="fullscreen-overlay hidden">
+            <button id="close-fullscreen-btn" class="close-btn fullscreen-close">&times;</button>
+            <img id="fullscreen-image" src="" alt="Image agrandie">
+        </div>
     </main>
 {% endblock %}
+

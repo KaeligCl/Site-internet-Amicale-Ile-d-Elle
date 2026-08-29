@@ -891,3 +891,120 @@ footer {
     color: #555;
     margin: 5px 0;
 }
+
+
+
+
+/* Pop up Event */
+
+/* --- STYLE DE LA FENÊTRE (MODALE) --- */
+.gallery-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fond assombri derrière */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-modal-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Empêche de cliquer quand c'est caché */
+}
+
+.gallery-modal {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    width: 600px;
+    max-width: 90%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.gallery-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.gallery-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* Grille de 3 colonnes pour les photos */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover; /* Recadre sans déformer */
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.05); /* Petit effet sur la photo elle-même */
+}
+
+.gallery-footer-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+}
+
+/* Modale Plein Écran pour l'image agrandie */
+.fullscreen-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Fond presque noir pour bien faire ressortir la photo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Doit être supérieur au z-index de la première modale (1000) */
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.fullscreen-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fullscreen-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    object-fit: contain; /* Assure que l'image ne soit pas déformée */
+}
+
+/* Bouton croix spécifique au plein écran (blanc et plus grand) */
+.fullscreen-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 3rem;
+}
+
+/* Reunion */

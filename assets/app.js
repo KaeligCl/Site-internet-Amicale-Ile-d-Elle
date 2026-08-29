@@ -6,5 +6,6 @@
  */
 import './styles/app.css';
 import './styles/popup.js';
+import './styles/PopEvent.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
