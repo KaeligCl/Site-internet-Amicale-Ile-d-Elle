@@ -610,7 +610,7 @@ main {
     }
     .materiel {
         display: flex;
-        flex-direction: row;
+        flex-direction: space-between;
         align-items: center;
         width: 100%;
     }
@@ -619,8 +619,9 @@ main {
         height: 80px;
         margin: 0 10px;
     }
-    .materiel-info {
+    .materiel-info > * {
         text-align: center;
+        font-size: 0.9rem;
     }
 }
 
