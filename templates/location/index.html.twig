@@ -6,7 +6,7 @@
 <main>
     <aside>
         <div class="titre">
-            <h2>Location de matériel</h2>
+            <h2>Matériel</h2>
             <h6>On a peut-être ce qu'il vous faut</h6>
         </div>
     </aside>
@@ -22,10 +22,13 @@
                  data-description="{{ equipement.description }}">
                 
                 <img src="{{ asset(equipement.image) }}" alt="{{ equipement.nom }}">
-                <h3>{{ equipement.nom }}</h3>
-                <p>Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
+                <div class="materiel-info">
+                    <h3>{{ equipement.nom }}</h3>
+                    <p>Prix plein : {{ equipement.prixPlein }}€ / membre : {{ equipement.prixMembre }}€</p>
+                </div>
             </div>
         {% endfor %}
+
     </section>
 
     <!-- La modale est Hors de la boucle (présente une seule fois) -->

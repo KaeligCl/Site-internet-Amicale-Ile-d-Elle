@@ -7,5 +7,6 @@
 import './styles/app.css';
 import './styles/popup.js';
 import './styles/PopEvent.js';
+import './styles/navBar.js';
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

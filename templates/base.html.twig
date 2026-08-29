@@ -34,42 +34,39 @@
                 <div class="Empty-Space"></div>
             </div>
 
-            <nav class="NavBar">
-                <a
-                    class="box {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}"
-                    href="{{ path('app_home') }}"
-                >
-                    <p>Qui sommes-nous ?</p>
-                </a>
+<nav class="NavBar">
+    <div class="nav-mobile-header">
+        <span class="active-page-title">
+            {% set route = app.request.attributes.get('_route') %}
+            {% if route == 'app_home' %}Qui sommes-nous ?
+            {% elseif route == 'app_evenement' %}Événements
+            {% elseif route == 'app_reunion' %}Réunions
+            {% elseif route == 'app_equipe' %}Équipe
+            {% elseif route == 'app_location' %}Location
+            {% else %}Menu{% endif %}
+        </span>
+        <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+            &#9776; </button>
+    </div>
 
-                <a
-                    class="box {{ app.request.attributes.get('_route') == 'app_evenement' ? 'active' : '' }}"
-                    href="{{ path('app_evenement') }}"
-                >
-                    <p>Événements</p>
-                </a>
-                
-                <a
-                    class="box {{ app.request.attributes.get('_route') == 'app_reunion' ? 'active' : '' }}"
-                    href="{{ path('app_reunion') }}"
-                >
-                    <p>Réunions</p>
-                </a>
-                
-                <a
-                    class="box {{ app.request.attributes.get('_route') == 'app_equipe' ? 'active' : '' }}"
-                    href="{{ path('app_equipe') }}"
-                >
-                    <p>Équipe</p>
-                </a>
-
-                <a
-                    class="box {{ app.request.attributes.get('_route') == 'app_location' ? 'active' : '' }}"
-                    href="{{ path('app_location') }}"
-                >
-                    <p>Location</p>
-                </a>
-            </nav>
+    <div class="nav-links" id="navLinks">
+        <a class="box {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}" href="{{ path('app_home') }}">
+            <p>Qui sommes-nous ?</p>
+        </a>
+        <a class="box {{ app.request.attributes.get('_route') == 'app_evenement' ? 'active' : '' }}" href="{{ path('app_evenement') }}">
+            <p>Événements</p>
+        </a>
+        <a class="box {{ app.request.attributes.get('_route') == 'app_reunion' ? 'active' : '' }}" href="{{ path('app_reunion') }}">
+            <p>Réunions</p>
+        </a>
+        <a class="box {{ app.request.attributes.get('_route') == 'app_equipe' ? 'active' : '' }}" href="{{ path('app_equipe') }}">
+            <p>Équipe</p>
+        </a>
+        <a class="box {{ app.request.attributes.get('_route') == 'app_location' ? 'active' : '' }}" href="{{ path('app_location') }}">
+            <p>Location</p>
+        </a>
+    </div>
+</nav>
         </header>
 
         {% block body %}{% endblock %}

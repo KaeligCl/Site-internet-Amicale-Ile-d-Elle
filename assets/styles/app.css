@@ -84,52 +84,107 @@ h1 .TitreL2 {
     font-weight: bolder;
     color: rgb(197, 197, 197);
 }
-
+/* --- Styles de base (Desktop) --- */
 .NavBar {
     background-color: rgb(236, 239, 230);
     border-top-left-radius: 50px;
     width: 100%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    min-height: 40px;
     color: black;
+    position: relative;
+}
+
+.nav-mobile-header {
+    display: none; /* Caché sur grand écran */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 40px;
 }
 
 .box {
-    width: 25%;
-    height: 95%;
+    width: 20%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.NavBar a {
-    justify-content: center;
-}
-
-.NavBar a > p{
     text-decoration: none;
+    box-sizing: border-box;
+}
+
+.NavBar a > p {
     color: inherit;
     font-weight: 500;
+    margin: 0;
 }
 
-.NavBar a:hover {
+.NavBar a:hover, 
+.NavBar a.active {
     border-bottom: 3px solid rgba(0, 0, 0, 0.349);
-    margin-bottom: 3px;
 }
 
-.NavBar a:hover:not(.active) > p {
-    padding-top: 6px;
-}
+/* --- Adaptations Mobile (< 768px) --- */
+@media (max-width: 767px) {
+    .NavBar {
+        border-top-left-radius: 20px;
+        padding-bottom: 10px;
+        border-top-left-radius: 0px;
+    }
 
-.NavBar .active{
-    border-bottom: 3px solid rgba(0, 0, 0, 0.349);
-    margin-bottom: 3px;
-}
+    /* Affichage du header mobile (Page active + bouton burger) */
+    .nav-mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        height: 45px;
+        cursor: pointer;
+    }
 
-.NavBar .active > p {
-    padding-top: 6px;
+    .active-page-title {
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+
+    .nav-toggle {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: inherit;
+    }
+
+    /* Le menu déroulant */
+    .nav-links {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        height: auto;
+        background-color: rgb(236, 239, 230);
+        width: 100%;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Classe affichée lors du clic */
+    .nav-links.open {
+        display: flex;
+    }
+
+    .box {
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .box.active {
+        display: none; /* Masque la page active de la liste déroulante sur mobile pour éviter les doublons */
+    }
 }
 
 main {
@@ -151,6 +206,28 @@ main > aside {
     transform: rotate(-180deg);
     writing-mode: vertical-rl;
     align-items: flex-end;
+}
+
+@media (max-width: 767px) {
+    main > aside {
+        display: none;
+    }
+    .TitreL1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .TitreL1 {
+        font-size: 1.25rem;
+    }
+    .materiel {
+        width: 120px;
+    }
+    .materiel > img {
+        width: 80px;
+        height: 80px;
+    }
 }
 
 .titre {
@@ -444,7 +521,7 @@ main {
     color: #333;
 }
 
-/* Location */
+
 
 .location {
     display: grid;
@@ -470,9 +547,14 @@ main {
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     .location {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media screen and (max-width: 450px) {
+    .location {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -491,8 +573,20 @@ main {
 .materiel {
     width: 180px;
     border-radius: 20px;
-    background-color: #9e9e9e51;
+    background-color: beige;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.363);
     cursor: pointer;
+}
+
+.materiel:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.materiel-info {
+    padding: 10px;
+    text-align: center;
 }
 
 .materiel > p,
