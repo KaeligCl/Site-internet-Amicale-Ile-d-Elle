@@ -565,11 +565,7 @@ main {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media screen and (max-width: 450px) {
-    .location {
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
+
 
 .materiel > img {
     border-radius: 20px;
@@ -605,6 +601,27 @@ main {
 .materiel > p,
 .materiel h3 {
     margin: 10px;
+}
+
+@media screen and (max-width: 450px) {
+    .location {
+        display: flex;
+        flex-direction: column;
+    }
+    .materiel {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+    .materiel > img {
+        width: 80px;
+        height: 80px;
+        margin: 0 10px;
+    }
+    .materiel-info {
+        text-align: center;
+    }
 }
 
 a {
