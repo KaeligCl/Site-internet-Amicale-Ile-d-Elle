@@ -682,6 +682,18 @@ a {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 }
 
+@media (max-width: 1000px) {
+    .product-info {
+        margin: 0;
+        zoom: 0.75;
+    }
+
+    .modal-card {
+        max-height: 85vh; /* Limite la hauteur à 85% de l'écran */
+        overflow-y: auto;  /* ACTIVER LE SCROLL uniquement sur petit écran */
+    }
+}
+
 /* Bouton de fermeture (croix en haut à droite) */
 .close-btn {
     position: absolute;
@@ -1144,3 +1156,27 @@ footer {
 }
 
 /* Reunion */
+/* Le conteneur en 2 colonnes verticales */
+/* 1. Sécurité globale pour empêcher tout débordement de l'écran */
+.reunions {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card-reunion {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.356);
+    box-sizing: border-box;
+}
+
+@media (max-width: 500px) {
+    .card-reunion {
+        zoom: 0.70;
+    }
+}

@@ -1,5 +1,30 @@
 {% extends 'base.html.twig' %}
 
+{% set jours = {
+    'Monday': 'Lundi',
+    'Tuesday': 'Mardi',
+    'Wednesday': 'Mercredi',
+    'Thursday': 'Jeudi',
+    'Friday': 'Vendredi',
+    'Saturday': 'Samedi',
+    'Sunday': 'Dimanche'
+} %}
+
+{% set mois = {
+    'January': 'Janvier',
+    'February': 'Février',
+    'March': 'Mars',
+    'April': 'Avril',
+    'May': 'Mai',
+    'June': 'Juin',
+    'July': 'Juillet',
+    'August': 'Août',
+    'September': 'Septembre',
+    'October': 'Octobre',
+    'November': 'Novembre',
+    'December': 'Décembre'
+} %}
+
 {% block title %}Notre Réunion - Amicale Laïque de l'Île-d'Elle{% endblock %}
 
 {% block body %}
@@ -12,35 +37,34 @@
         </div>
     </aside>
 
+<section class="reunions">
+    <article class="card-reunion">
+        <h3>Réunion du 15 Octobre 2026</h3>
+        <h6>Date : 15/10/2026</h6>
+        <p>Lors de cette réunion, nous avons discuté des projets à venir pour l'année 2026. Les membres ont proposé plusieurs idées pour améliorer nos activités et renforcer la communauté.</p>
+    </article>
+
+    <article class="card-reunion">
+        <h3>Réunion du 02 Novembre 2026</h3>
+        <h6>Date : 02/11/2026</h6>
+        <p>Compt, réparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.ompte-rendu plus long : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.</p>
+    </article>
+
+    <article class="card-reunion">
+        <h3>Réunion du 20 Novembre 2026</h3>
+        <h6>Date : 20/11/2026</h6>
+        <p>Bilan rapide de la session précédente.</p>
+    </article>
+</section>
+
 </main>
 {% endblock %}
+
 {#
-
-    <section class="reunions-grid">
-        {% for reunion in reunions %}
-            <article class="card-reunion">
-                <header class="reunion-header">
-                    <div class="reunion-date">
-                        <!-- Format de date propre (ex: 15 Oct. 2026) -->
-                        <span class="day">{{ reunion.date|date('d') }}</span>
-                        <span class="month-year">{{ reunion.date|date('M Y') }}</span>
-                    </div>
-                    
-                    <div class="reunion-title-group">
-                        <span class="badge">Compte rendu</span>
-                        <h3>{{ reunion.titre }}</h3>
-                    </div>
-                </header>
-
-                <div class="reunion-content">
-                    <p>{{ reunion.texte }}</p>
-                </div>
-
-                <!-- Optionnel : Un bouton de téléchargement ou d'action -->
-                <footer class="reunion-footer">
-                    <a href="#" class="btn-read-more">Lire la suite</a>
-                </footer>
-            </article>
-        {% endfor %}
-    </section>
+    for each reunion in reunions
+        <article class="card-reunion">
+            <h3>{{ reunion.titre }}</h3>
+            <h6>Date : {{ reunion.date|date('d/m/Y') }}</h6>
+            <p>{{ reunion.compteRendu }}</p>
+        </article>
 #}
