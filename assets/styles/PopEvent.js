@@ -1,75 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Éléments du DOM - Galerie
     const modal = document.getElementById('gallery-modal-overlay');
     const closeBtn = document.getElementById('close-gallery-btn');
-    const modalTitle = document.getElementById('gallery-title');
-    
-    // On cible tes balises avec la classe "event"
-    const eventCards = document.querySelectorAll('.event');
+    const galleryLink = document.getElementById('gallery-event-link');
+    const galleryGrid = document.getElementById('gallery-grid');
 
-    // Quand on CLIQUE sur une carte d'événement
-    eventCards.forEach(card => {
+    // Éléments du DOM - Plein écran
+    const fullscreenOverlay = document.getElementById('fullscreen-image-overlay');
+    const fullscreenImage = document.getElementById('fullscreen-image');
+    const closeFullscreenBtn = document.getElementById('close-fullscreen-btn');
+
+    // Clic sur une carte événement
+    document.querySelectorAll('.event').forEach(card => {
         card.addEventListener('click', (e) => {
-            e.preventDefault(); // Empêche le comportement par défaut de la balise <a>
-            
-            // On cherche le titre à l'intérieur de la carte cliquée
-            const titreElement = card.querySelector('.titre-event');
-            
-            if (titreElement) {
-                // On met à jour le titre de la fenêtre modale
-                modalTitle.textContent = `Photos de l'évènement : ${titreElement.textContent}`;
+            e.preventDefault();
+
+            const title = card.dataset.title || 'Événement';
+            const lien = card.dataset.lien;
+
+            // 1. Mise à jour du lien cliquable dans le titre de la modale
+            if (galleryLink) {
+                galleryLink.textContent = title;
+                if (lien && lien.trim() !== '') {
+                    galleryLink.href = lien;
+                    galleryLink.style.pointerEvents = 'auto';
+                    galleryLink.style.textDecoration = 'underline';
+                } else {
+                    galleryLink.removeAttribute('href');
+                    galleryLink.style.pointerEvents = 'none';
+                    galleryLink.style.textDecoration = 'none';
+                }
             }
-            
-            // On affiche la fenêtre
+
+            // 2. Injection des images Twig
+            const photosData = card.querySelector('.event-photos-data');
+            galleryGrid.innerHTML = '';
+
+            if (photosData && photosData.children.length > 0) {
+                Array.from(photosData.children).forEach(img => {
+                    const cloneImg = img.cloneNode(true);
+                    
+                    // Clic sur une vignette -> Ouverture grand format
+                    cloneImg.addEventListener('click', () => {
+                        fullscreenImage.src = cloneImg.src;
+                        fullscreenOverlay.classList.remove('hidden');
+                    });
+
+                    galleryGrid.appendChild(cloneImg);
+                });
+            } else {
+                galleryGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: #777;">Aucune photo disponible pour cet événement.</p>';
+            }
+
+            // 3. Affichage de la modale
             modal.classList.remove('hidden');
         });
     });
 
-    // Fermer la fenêtre avec la croix
+    // Fermeture de la galerie
     if (closeBtn) {
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
     }
-
-    // Fermer la fenêtre en cliquant sur le fond sombre
     if (modal) {
         modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
+            if (e.target === modal) modal.classList.add('hidden');
         });
     }
 
-    // --- NOUVEAU CODE POUR L'AGRANDISSEMENT DES PHOTOS ---
-    const fullscreenOverlay = document.getElementById('fullscreen-image-overlay');
-    const fullscreenImage = document.getElementById('fullscreen-image');
-    const closeFullscreenBtn = document.getElementById('close-fullscreen-btn');
-    const galleryImages = document.querySelectorAll('.gallery-grid img');
-
-    // Quand on clique sur une photo de la grille
-    galleryImages.forEach(img => {
-        img.addEventListener('click', () => {
-            // On copie l'adresse (src) de l'image cliquée dans la grande image
-            fullscreenImage.src = img.src;
-            // On affiche la modale plein écran
-            fullscreenOverlay.classList.remove('hidden');
-        });
-    });
-
-    // Fermer le plein écran avec la croix
+    // Fermeture du plein écran
     if (closeFullscreenBtn) {
-        closeFullscreenBtn.addEventListener('click', () => {
-            fullscreenOverlay.classList.add('hidden');
-        });
+        closeFullscreenBtn.addEventListener('click', () => fullscreenOverlay.classList.add('hidden'));
     }
-
-    // Fermer le plein écran en cliquant n'importe où autour de l'image
     if (fullscreenOverlay) {
         fullscreenOverlay.addEventListener('click', (e) => {
-            // Si on clique sur le fond noir (et pas sur l'image elle-même)
-            if (e.target === fullscreenOverlay) {
-                fullscreenOverlay.classList.add('hidden');
-            }
+            if (e.target === fullscreenOverlay) fullscreenOverlay.classList.add('hidden');
         });
     }
 });

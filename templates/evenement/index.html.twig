@@ -28,7 +28,6 @@
 {% block title %}Événements - Amicale Laïque de l'Île d'Elle{% endblock %}
 
 {% block body %}
-    
     <main>
         <aside>
             <div class="titre">
@@ -36,84 +35,50 @@
                 <h6>2025-2026</h6>
             </div>
         </aside>
+
         <section class="bloc-evenements">
 
-            <h3 class="titre-section" style="border-bottom: 3px solid #caffbf"; >Événements à Suivre</h3>
+            <h3 class="titre-section" style="border-bottom: 3px solid #caffbf;">Événements à Suivre</h3>
             <section class="evenements">
-           
                 {% for evenement in evenementsAvenir %}
-
-                <a class="event">
-                    <div class="date">
-                        <h4 class="jour">{{ evenement.dateDebut|date('d') }}</h4>
-                        <h5 class="mois">{{ mois[evenement.dateDebut|date('F')] }}</h5>
-                    </div>
-                    <div class="contenu">
-                        <h3 class="titre-event">{{ evenement.titre }}</h3>
-                        <p class="text-event">{{ evenement.description }}</p>
-                        <h6 class="journee-heure">{{ jours[evenement.dateDebut|date('l')] }} / {{ evenement.dateDebut|date('H:i') }}{% if evenement.dateFin %} - {{ evenement.dateFin|date('H:i') }}{% endif %}</h6>
-                    </div>
-                </a>
+                    {% include 'evenements/_card_evenement.html.twig' with {'evenement': evenement} %}
                 {% else %}
-                     <p>Aucun événement à venir.</p>
+                    <p>Aucun événement à venir.</p>
                 {% endfor %}
-
             </section>
 
-            <h3 class="titre-section" style="border-bottom: 3px solid #ffbfbf">Événements Passés</h3>
+            <h3 class="titre-section" style="border-bottom: 3px solid #ffbfbf;">Événements Passés</h3>
             <section class="evenements">
-           
                 {% for evenement in evenementsPasses %}
-
-                <a class="event">
-                    <div class="date">
-                        <h4 class="jour">{{ evenement.dateDebut|date('d') }}</h4>
-                        <h5 class="mois">{{ mois[evenement.dateDebut|date('F')] }}</h5>
-                    </div>
-                    <div class="contenu">
-                        <h3 class="titre-event">{{ evenement.titre }}</h3>
-                        <p class="text-event">{{ evenement.description }}</p>
-                        <h6 class="journee-heure">{{ jours[evenement.dateDebut|date('l')] }} / {{ evenement.dateDebut|date('H:i') }}{% if evenement.dateFin %} - {{ evenement.dateFin|date('H:i') }}{% endif %}</h6>
-                    </div>
-                </a>
+                    {% include 'evenement/_card_evenement.html.twig' with {'evenement': evenement} %}
                 {% else %}
                     <p>Aucun événement passé.</p>
                 {% endfor %}
-
             </section>
 
         </section>
 
+        {# POPUP / MODALE GALERIE #}
         <div id="gallery-modal-overlay" class="gallery-modal-overlay hidden">
             <div class="gallery-modal">
                 <div class="gallery-header">
-                    <h3 id="gallery-title">Photos de l'évènement</h3>
+                    <h3 id="gallery-title">
+                        Photos de l'évènement : 
+                        <a id="gallery-event-link" href="#" target="_blank" rel="noopener noreferrer" class="event-pop-link"></a>
+                    </h3>
                     <button id="close-gallery-btn" class="close-btn">&times;</button>
                 </div>
                 
-                <!-- Grille des photos -->
-                <div class="gallery-grid">
-                    <!-- Remplace par les vraies images de l'événement -->
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 1">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 2">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 3">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 4">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 5">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 6">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 7">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 8">
-                    <img src={{ asset('picture/pp.png') }} alt="Photo 9">
-                </div>
+                <div id="gallery-grid" class="gallery-grid"></div>
                 
-                <p class="gallery-footer-text">9 photos disponibles. Cliquez sur une photo pour l'agrandir.</p>
+                <p class="gallery-footer-text">Cliquez sur une photo pour l'agrandir.</p>
             </div>
         </div>
 
-                <!-- Modale pour l'image en plein écran -->
+        {# POPUP PLEIN ÉCRAN POUR IMAGE AGRANDIE #}
         <div id="fullscreen-image-overlay" class="fullscreen-overlay hidden">
             <button id="close-fullscreen-btn" class="close-btn fullscreen-close">&times;</button>
-            <img id="fullscreen-image" src="" alt="Image agrandie">
+            <img id="fullscreen-image" src="" alt="Photo grand format">
         </div>
     </main>
 {% endblock %}
-

@@ -32,6 +32,9 @@ class Evenements
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $lienEvent = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?PhotoEvent $pic = null;
+
 
     public function getId(): ?int
     {
@@ -106,6 +109,18 @@ class Evenements
     public function setLienEvent(?string $lienEvent): static
     {
         $this->lienEvent = $lienEvent;
+
+        return $this;
+    }
+
+    public function getPic(): ?PhotoEvent
+    {
+        return $this->pic;
+    }
+
+    public function setPic(?PhotoEvent $pic): static
+    {
+        $this->pic = $pic;
 
         return $this;
     }

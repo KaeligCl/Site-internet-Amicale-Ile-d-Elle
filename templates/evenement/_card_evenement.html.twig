@@ -1,0 +1,27 @@
+<a class="event" href="#" data-title="{{ evenement.titre }}" data-lien="{{ evenement.lienEvent }}">
+    <div class="date">
+        <h4 class="jour">{{ evenement.dateDebut|date('d') }}</h4>
+        <h5 class="mois">{{ mois[evenement.dateDebut|date('F')] }}</h5>
+    </div>
+    <div class="contenu">
+        <h3 class="titre-event">{{ evenement.titre }}</h3>
+        <p class="text-event">{{ evenement.description }}</p>
+        <h6 class="journee-heure">
+            {{ jours[evenement.dateDebut|date('l')] }} / {{ evenement.dateDebut|date('H:i') }}
+            {% if evenement.dateFin %} - {{ evenement.dateFin|date('H:i') }}{% endif %}
+        </h6>
+    </div>
+
+    {# Injecte dynamiquement les images reliées via la clé étrangère PhotoEvent #}
+    <div class="event-photos-data" style="display: none;">
+        {% set photoEntity = evenement.pic %} {# Remplace .pic par .photoEvent si nécessaire #}
+        {% if photoEntity %}
+            {% for i in 1..9 %}
+                {% set picAttr = attribute(photoEntity, 'pic' ~ i) %}
+                {% if picAttr is not null and picAttr is not empty %}
+                    <img src="{{ asset('uploads/photos/' ~ picAttr) }}" alt="Photo {{ i }}">
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</a>

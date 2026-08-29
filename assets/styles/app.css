@@ -1007,4 +1007,15 @@ footer {
     font-size: 3rem;
 }
 
+.event-pop-link {
+    color: #5b9dd9; /* Reprend la couleur bleue de ta charte */
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.event-pop-link:hover {
+    color: #2c3e50;
+    text-decoration: underline;
+}
+
 /* Reunion */
