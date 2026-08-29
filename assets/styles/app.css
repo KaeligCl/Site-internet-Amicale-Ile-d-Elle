@@ -433,6 +433,7 @@ main {
     margin-bottom: 20px;
 }
 
+
 .membre:nth-child(10n + 1) {
     border-left: 8px solid #bdb2ff;
 }
@@ -471,6 +472,18 @@ main {
     object-fit: cover;
     flex-shrink: 0;
 }
+
+@media screen and (max-width: 800px) {
+    .membre {
+        display: flex;
+        flex-direction: column;
+    }
+    .membre img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
 
 .membre:nth-child(10n + 1) img {
     border: 2px solid #bdb2ff;
