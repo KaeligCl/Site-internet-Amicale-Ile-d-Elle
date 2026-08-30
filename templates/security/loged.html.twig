@@ -34,12 +34,16 @@
 
         <div class="admin-list">
 
-            {% for evenement in evenements|default([]) %}
-
+            {% for evenement in evenements %}
                 <div class="admin-item">
 
                     <div class="admin-item-info">
-                        <strong>{{ evenement }}</strong>
+                        <strong>{{ evenement.titre }}</strong>
+                        <span>
+                            {{ evenement.dateDebut|date('d/m/Y H:i') }}
+                            —
+                            {{ evenement.lieu }}
+                        </span>
                     </div>
 
                     <div class="admin-item-actions">
@@ -53,13 +57,8 @@
                     </div>
 
                 </div>
-
             {% else %}
-
-                <p class="admin-empty">
-                    Aucun événement.
-                </p>
-
+                <p class="admin-empty">Aucun événement.</p>
             {% endfor %}
 
         </div>
@@ -80,12 +79,14 @@
 
         <div class="admin-list">
 
-            {% for reunion in reunions|default([]) %}
-
+            {% for reunion in reunions %}
                 <div class="admin-item">
 
                     <div class="admin-item-info">
-                        <strong>{{ reunion }}</strong>
+                        <strong>{{ reunion.titre }}</strong>
+                        <span>
+                            {{ reunion.date|date('d/m/Y H:i') }}
+                        </span>
                     </div>
 
                     <div class="admin-item-actions">
@@ -99,13 +100,8 @@
                     </div>
 
                 </div>
-
             {% else %}
-
-                <p class="admin-empty">
-                    Aucune réunion.
-                </p>
-
+                <p class="admin-empty">Aucune réunion.</p>
             {% endfor %}
 
         </div>
@@ -126,12 +122,12 @@
 
         <div class="admin-list">
 
-            {% for membre in equipe|default([]) %}
-
+            {% for membre in equipe %}
                 <div class="admin-item">
 
                     <div class="admin-item-info">
-                        <strong>{{ membre }}</strong>
+                        <strong>{{ membre.nom }}</strong>
+                        <span>{{ membre.role }}</span>
                     </div>
 
                     <div class="admin-item-actions">
@@ -145,13 +141,8 @@
                     </div>
 
                 </div>
-
             {% else %}
-
-                <p class="admin-empty">
-                    Aucun membre.
-                </p>
-
+                <p class="admin-empty">Aucun membre.</p>
             {% endfor %}
 
         </div>
@@ -172,12 +163,19 @@
 
         <div class="admin-list">
 
-            {% for location in locations|default([]) %}
-
+            {% for location in locations %}
                 <div class="admin-item">
 
                     <div class="admin-item-info">
-                        <strong>{{ location }}</strong>
+                        <strong>{{ location.nom }}</strong>
+                        <span>
+                            {{ location.prixPlein }} € —
+                            {% if location.encoreDisponible %}
+                                Disponible
+                            {% else %}
+                                Indisponible
+                            {% endif %}
+                        </span>
                     </div>
 
                     <div class="admin-item-actions">
@@ -191,13 +189,8 @@
                     </div>
 
                 </div>
-
             {% else %}
-
-                <p class="admin-empty">
-                    Aucune location.
-                </p>
-
+                <p class="admin-empty">Aucune location.</p>
             {% endfor %}
 
         </div>
