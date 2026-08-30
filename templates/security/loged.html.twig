@@ -1,0 +1,210 @@
+{% extends 'base.html.twig' %}
+
+{% block nav %}{% endblock %}
+
+{% block body %}
+
+<div class="admin-container">
+
+<div class="admin-header">
+    <div>
+        <h1>Administration</h1>
+        <p>Gestion du site</p>
+    </div>
+
+    <a href="{{ path('app_logout') }}" class="logout-button">
+        Se déconnecter
+    </a>
+</div>
+
+
+<div class="admin-grid">
+
+    {# ================= ÉVÉNEMENTS ================= #}
+
+    <section class="admin-card">
+        <div class="admin-card-title">
+            <h2>Événements</h2>
+            <span class="admin-number">01</span>
+        </div>
+
+        <a href="#" class="admin-add-button">
+            + Ajouter un événement
+        </a>
+
+        <div class="admin-list">
+
+            {% for evenement in evenements|default([]) %}
+
+                <div class="admin-item">
+
+                    <div class="admin-item-info">
+                        <strong>{{ evenement }}</strong>
+                    </div>
+
+                    <div class="admin-item-actions">
+                        <a href="#" class="admin-button edit">
+                            Modifier
+                        </a>
+
+                        <a href="#" class="admin-button delete">
+                            Supprimer
+                        </a>
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="admin-empty">
+                    Aucun événement.
+                </p>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+    {# ================= RÉUNIONS ================= #}
+
+    <section class="admin-card">
+        <div class="admin-card-title">
+            <h2>Réunions</h2>
+            <span class="admin-number">02</span>
+        </div>
+
+        <a href="#" class="admin-add-button">
+            + Ajouter une réunion
+        </a>
+
+        <div class="admin-list">
+
+            {% for reunion in reunions|default([]) %}
+
+                <div class="admin-item">
+
+                    <div class="admin-item-info">
+                        <strong>{{ reunion }}</strong>
+                    </div>
+
+                    <div class="admin-item-actions">
+                        <a href="#" class="admin-button edit">
+                            Modifier
+                        </a>
+
+                        <a href="#" class="admin-button delete">
+                            Supprimer
+                        </a>
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="admin-empty">
+                    Aucune réunion.
+                </p>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+    {# ================= ÉQUIPE ================= #}
+
+    <section class="admin-card">
+        <div class="admin-card-title">
+            <h2>Équipe</h2>
+            <span class="admin-number">03</span>
+        </div>
+
+        <a href="#" class="admin-add-button">
+            + Ajouter un membre
+        </a>
+
+        <div class="admin-list">
+
+            {% for membre in equipe|default([]) %}
+
+                <div class="admin-item">
+
+                    <div class="admin-item-info">
+                        <strong>{{ membre }}</strong>
+                    </div>
+
+                    <div class="admin-item-actions">
+                        <a href="#" class="admin-button edit">
+                            Modifier
+                        </a>
+
+                        <a href="#" class="admin-button delete">
+                            Supprimer
+                        </a>
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="admin-empty">
+                    Aucun membre.
+                </p>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+
+    {# ================= LOCATIONS ================= #}
+
+    <section class="admin-card">
+        <div class="admin-card-title">
+            <h2>Locations</h2>
+            <span class="admin-number">04</span>
+        </div>
+
+        <a href="#" class="admin-add-button">
+            + Ajouter une location
+        </a>
+
+        <div class="admin-list">
+
+            {% for location in locations|default([]) %}
+
+                <div class="admin-item">
+
+                    <div class="admin-item-info">
+                        <strong>{{ location }}</strong>
+                    </div>
+
+                    <div class="admin-item-actions">
+                        <a href="#" class="admin-button edit">
+                            Modifier
+                        </a>
+
+                        <a href="#" class="admin-button delete">
+                            Supprimer
+                        </a>
+                    </div>
+
+                </div>
+
+            {% else %}
+
+                <p class="admin-empty">
+                    Aucune location.
+                </p>
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+</div>
+
+</div>
+
+{% endblock %}

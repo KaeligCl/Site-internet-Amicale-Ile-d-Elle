@@ -122,7 +122,7 @@ h1 .TitreL2 {
     margin: 0;
 }
 
-.NavBar a:hover, 
+.NavBar a:hover,
 .NavBar a.active {
     border-bottom: 3px solid rgba(0, 0, 0, 0.349);
 }
@@ -275,8 +275,6 @@ main {
 }
 
 /* évènements */
-
-
 
 .titre-section {
     font-family: Cinzel, serif;
@@ -433,7 +431,6 @@ main {
     margin-bottom: 20px;
 }
 
-
 .membre:nth-child(10n + 1) {
     border-left: 8px solid #bdb2ff;
 }
@@ -484,7 +481,6 @@ main {
     }
 }
 
-
 .membre:nth-child(10n + 1) img {
     border: 2px solid #bdb2ff;
 }
@@ -534,8 +530,6 @@ main {
     color: #333;
 }
 
-
-
 .location {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -566,7 +560,6 @@ main {
     }
 }
 
-
 .materiel > img {
     border-radius: 20px;
     width: 150px;
@@ -576,7 +569,6 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.363);
     margin: auto;
     margin-top: 5px;
-
 }
 
 .materiel {
@@ -650,22 +642,22 @@ a {
     display: none;
 }
 
-.btn-materiel{
+.btn-materiel {
     /* Supprime le fond, les bordures et les ombres par défaut */
     background: none;
     border: none;
     padding: 0;
     margin: 0;
     box-shadow: none;
-    
+
     /* Corrige la typographie et l'alignement */
     font: inherit;
     color: inherit;
     text-align: inherit;
-    
+
     /* Rend le bouton cliquable au survol */
     cursor: pointer;
-    
+
     /* Évite les comportements d'affichage bizarres du bouton */
     outline: inherit;
     display: inline-block;
@@ -690,7 +682,7 @@ a {
 
     .modal-card {
         max-height: 85vh; /* Limite la hauteur à 85% de l'écran */
-        overflow-y: auto;  /* ACTIVER LE SCROLL uniquement sur petit écran */
+        overflow-y: auto; /* ACTIVER LE SCROLL uniquement sur petit écran */
     }
 }
 
@@ -1029,15 +1021,15 @@ footer {
     margin: 5px 0;
 }
 
-
-
-
 /* Pop up Event */
 
 /* --- STYLE DE LA FENÊTRE (MODALE) --- */
 .gallery-modal-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.4); /* Fond assombri derrière */
     display: flex;
     justify-content: center;
@@ -1058,7 +1050,7 @@ footer {
     padding: 30px;
     width: 600px;
     max-width: 90%;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-header {
@@ -1112,7 +1104,10 @@ footer {
 /* Modale Plein Écran pour l'image agrandie */
 .fullscreen-overlay {
     position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, 0.9); /* Fond presque noir pour bien faire ressortir la photo */
     display: flex;
     justify-content: center;
@@ -1131,7 +1126,7 @@ footer {
     max-width: 90%;
     max-height: 90%;
     border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     object-fit: contain; /* Assure que l'image ne soit pas déformée */
 }
 
@@ -1177,6 +1172,546 @@ footer {
 
 @media (max-width: 500px) {
     .card-reunion {
-        zoom: 0.70;
+        zoom: 0.7;
+    }
+}
+
+/* ============================= */
+/*          LOGIN                 */
+/* ============================= */
+
+.login-container {
+    min-height: calc(100vh - 140px);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px 20px;
+
+    background-image: linear-gradient(
+        192deg,
+        rgb(255, 255, 255) 0%,
+        rgb(255, 255, 255) 45%,
+        rgb(236, 239, 230) 45%,
+        rgb(236, 239, 230) 100%
+    );
+}
+
+.login-card {
+    width: 90%;
+    max-width: 450px;
+    background: rgba(255, 255, 255, 0.9);
+
+    padding: 40px;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    border-left: 8px solid #bdb2ff;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-header h1 {
+    font-family: Cinzel, serif;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.login-header p {
+    margin: 0;
+    color: #797979;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+}
+
+.login-error {
+    background-color: #ffadad;
+    border-left: 5px solid #ee8585;
+
+    padding: 12px 15px;
+    margin-bottom: 25px;
+
+    border-radius: 10px;
+
+    color: #333;
+    font-size: 0.9rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+
+    font-weight: bold;
+    color: #444;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    padding: 13px 15px;
+
+    border: 2px solid #eee;
+    border-radius: 10px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #bdb2ff;
+    outline: none;
+
+    box-shadow: 0 0 0 3px rgba(189, 178, 255, 0.2);
+}
+
+.login-button {
+    width: 100%;
+
+    padding: 15px;
+    margin-top: 10px;
+
+    background-color: #333;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: Bebas, sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #bdb2ff;
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(189, 178, 255, 0.4);
+}
+
+@media (max-width: 600px) {
+    .login-container {
+        min-height: calc(100vh - 80px);
+        padding: 20px 15px;
+    }
+
+    .login-card {
+        padding: 30px 25px;
+        border-left-width: 6px;
+    }
+
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ============================= */
+/*       ADMINISTRATION           */
+/* ============================= */
+
+.admin-container {
+    min-height: calc(100vh - 140px);
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 50px;
+
+    background-image: linear-gradient(
+        192deg,
+        rgb(255, 255, 255) 0%,
+        rgb(255, 255, 255) 45%,
+        rgb(236, 239, 230) 45%,
+        rgb(236, 239, 230) 100%
+    );
+}
+
+.admin-header {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header h1 {
+    font-family: Cinzel, serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #333;
+
+    margin: 0 0 5px;
+}
+
+.admin-header p {
+    margin: 0;
+
+    color: #797979;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+/* ============================= */
+/*            CARTES              */
+/* ============================= */
+
+.admin-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.admin-card {
+    background: rgba(255, 255, 255, 0.9);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+    border-left: 8px solid #bdb2ff;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.admin-card:nth-child(2) {
+    border-left-color: #ffadad;
+}
+
+.admin-card:nth-child(3) {
+    border-left-color: #9bf6ff;
+}
+
+.admin-card:nth-child(4) {
+    border-left-color: #caffbf;
+}
+
+.admin-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================= */
+/*            TITRES              */
+/* ============================= */
+
+.admin-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.admin-card h2 {
+    font-family: Cinzel, serif;
+
+    font-size: 1.5rem;
+    font-weight: 400;
+
+    color: #333;
+
+    margin: 0;
+}
+
+.admin-number {
+    font-family: Bebas, sans-serif;
+
+    font-size: 1.5rem;
+
+    color: #aaa;
+
+    letter-spacing: 2px;
+}
+
+/* ============================= */
+/*           BOUTONS              */
+/* ============================= */
+
+.admin-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-button {
+    flex: 1;
+
+    padding: 13px 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    font-family: Bebas, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+.admin-button.add {
+    background-color: #caffbf;
+}
+
+.admin-button.edit {
+    background-color: #fdffb6;
+}
+
+.admin-button.delete {
+    background-color: #ffadad;
+}
+
+.admin-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================= */
+/*         DÉCONNEXION            */
+/* ============================= */
+
+.logout-button {
+    padding: 12px 22px;
+
+    background-color: #333;
+    color: white;
+
+    border-radius: 50px;
+
+    font-family: Bebas, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #bdb2ff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(189, 178, 255, 0.4);
+}
+
+/* ============================= */
+/*            MOBILE              */
+/* ============================= */
+
+@media (max-width: 800px) {
+    .admin-container {
+        padding: 30px 20px;
+    }
+
+    .admin-header {
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .admin-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .admin-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    .admin-header {
+        flex-direction: column;
+    }
+
+    .logout-button {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .admin-actions {
+        flex-direction: column;
+    }
+
+    .admin-button {
+        width: 100%;
+    }
+}
+
+/* ============================= */
+/*       ADMIN LISTES             */
+/* ============================= */
+
+.admin-add-button {
+    display: block;
+
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+    margin-bottom: 20px;
+
+    background-color: #333;
+    color: white;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-family: Bebas, sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+
+    transition: all 0.25s ease;
+}
+
+.admin-add-button:hover {
+    background-color: #bdb2ff;
+    transform: translateY(-2px);
+}
+
+/* Liste */
+
+.admin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Élément */
+
+.admin-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 12px 15px;
+
+    background-color: rgba(236, 239, 230, 0.55);
+
+    border-radius: 10px;
+}
+
+.admin-item-info {
+    min-width: 0;
+}
+
+.admin-item-info strong {
+    font-weight: 500;
+}
+
+/* Boutons modifier / supprimer */
+
+.admin-item-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.admin-button {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: Bebas, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.admin-button.edit {
+    background-color: #fdffb6;
+    color: #333;
+}
+
+.admin-button.delete {
+    background-color: #ffadad;
+    color: #333;
+}
+
+.admin-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Aucun élément */
+
+.admin-empty {
+    color: #888;
+
+    text-align: center;
+
+    font-size: 0.9rem;
+
+    margin: 10px 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .admin-item {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-item-actions {
+        width: 100%;
+    }
+
+    .admin-button {
+        flex: 1;
+        text-align: center;
     }
 }
