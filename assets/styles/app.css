@@ -1,11 +1,60 @@
+/* ============================================================
+   AMICALE LAÏQUE DE L'ÎLE D'ELLE — FEUILLE DE STYLE PRINCIPALE
+   ============================================================
+
+   SOMMAIRE :
+     1. Polices et variables
+     2. Base (html, body)
+     3. Header et navigation
+     4. Footer
+     5. Accueil / Présentation
+     6. Événements
+     7. Équipe
+     8. Réunions
+     9. Locations (matériel)
+    10. Mentions légales
+    11. Connexion (login)
+    12. Administration (dashboard + modales)
+    13. Media queries mobiles
+
+   Note : les sections sont délimitées par des bandeaux "=====".
+   Cherchez "12." pour sauter directement à l'admin, etc.
+   ============================================================ */
+
+/* ---------- 1. Polices et variables ---------- */
+:root {
+    --couleur-fond: #ffffff;
+    --couleur-texte: #222222;
+    --couleur-texte-doux: #666666;
+    --couleur-accent: #bdb2ff;
+    --couleur-carte: rgba(236, 239, 230, 0.55);
+    --radius-carte: 10px;
+    --ombre-carte: 0 4px 8px rgba(0, 0, 0, 0.08);
+
+    /* Boutons admin */
+    --btn-edit: #fdffb6;
+    --btn-delete: #ffadad;
+    --btn-add: #caffbf;
+}
+
 @font-face {
     font-family: Cinzel;
     src: url("../font/Cinzel/Cinzel-VariableFont_wght.ttf");
 }
-
 @font-face {
     font-family: Bebas;
     src: url("../font/Bebas_Neue/BebasNeue-Regular.ttf");
+}
+
+/* ---------- 2. Base ---------- */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Accessibilité : contour visible au clavier */
+:focus-visible {
+    outline: 3px solid var(--couleur-accent);
+    outline-offset: 2px;
 }
 
 html,
@@ -52,7 +101,7 @@ header {
 .Logo-Container {
     justify-content: flex-end;
     width: auto;
-    height: 80px;
+    height: 120px;
     overflow: visible;
 }
 
@@ -191,7 +240,7 @@ main {
     display: flex;
     flex-direction: row;
     width: 100%;
-    padding: 0;
+    padding: 10px 0 0 0;
     margin: 0;
     height: calc(100vh - 140px - 60px);
 }
@@ -343,7 +392,7 @@ main {
     box-shadow: 3px 3px 1px #8a7edd;
 }
 .event:nth-child(10n + 2) .date {
-    background-color: #ffadad;
+    background-color: var(--btn-delete);
     border: 2px solid #ffadad;
     box-shadow: 3px 3px 1px #ee8585;
 }
@@ -353,7 +402,7 @@ main {
     box-shadow: 3px 3px 1px #5cd6e0;
 }
 .event:nth-child(10n + 4) .date {
-    background-color: #fdffb6;
+    background-color: var(--btn-edit);
     border: 2px solid #fdffb6;
     box-shadow: 3px 3px 1px #e6e88e;
 }
@@ -363,7 +412,7 @@ main {
     box-shadow: 3px 3px 1px #e096e0;
 }
 .event:nth-child(10n + 6) .date {
-    background-color: #caffbf;
+    background-color: var(--btn-add);
     border: 2px solid #caffbf;
     box-shadow: 3px 3px 1px #97e08b;
 }
@@ -1235,7 +1284,7 @@ footer {
 }
 
 .login-error {
-    background-color: #ffadad;
+    background-color: var(--btn-delete);
     border-left: 5px solid #ee8585;
 
     padding: 12px 15px;
@@ -1491,15 +1540,15 @@ footer {
 }
 
 .admin-button.add {
-    background-color: #caffbf;
+    background-color: var(--btn-add);
 }
 
 .admin-button.edit {
-    background-color: #fdffb6;
+    background-color: var(--btn-edit);
 }
 
 .admin-button.delete {
-    background-color: #ffadad;
+    background-color: var(--btn-delete);
 }
 
 .admin-button:hover {
@@ -1617,25 +1666,34 @@ footer {
 }
 
 /* Liste */
-
 .admin-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    max-height: 420px;
+    overflow-y: auto;
+    padding: 5px 10px 5px 5px;
 }
 
+/* Barre de défilement discrète */
+.admin-list::-webkit-scrollbar {
+    width: 6px;
+}
+.admin-list::-webkit-scrollbar-thumb {
+    background-color: #bbb;
+    border-radius: 10px;
+}
+.admin-list::-webkit-scrollbar-track {
+    background-color: transparent;
+}
 /* Élément */
-
 .admin-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 15px;
-
     padding: 12px 15px;
-
-    background-color: rgba(236, 239, 230, 0.55);
-
+    background-color: var(--couleur-carte);
     border-radius: 10px;
 }
 
@@ -1671,12 +1729,12 @@ footer {
 }
 
 .admin-button.edit {
-    background-color: #fdffb6;
+    background-color: var(--btn-edit);
     color: #333;
 }
 
 .admin-button.delete {
-    background-color: #ffadad;
+    background-color: var(--btn-delete);
     color: #333;
 }
 
@@ -1751,41 +1809,6 @@ footer {
     margin: 0;
 }
 
-.admin-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 500px;
-    overflow-y: auto;
-    padding: 5px;
-}
-
-.admin-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    background: white;
-    padding: 15px 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-}
-
-.admin-item-info h3 {
-    margin: 0 0 5px;
-    font-family: Cinzel, serif;
-}
-
-.admin-item-info p {
-    margin: 0;
-    color: #666;
-}
-
-.admin-item-actions {
-    display: flex;
-    gap: 10px;
-}
-
 .admin-btn {
     border: none;
     padding: 10px 18px;
@@ -1798,7 +1821,7 @@ footer {
 }
 
 .admin-btn-add {
-    background: #caffbf;
+    background: var(--btn-add);
 }
 
 .admin-btn-edit {
@@ -1806,7 +1829,7 @@ footer {
 }
 
 .admin-btn-delete {
-    background: #ffadad;
+    background: var(--btn-delete);
 }
 
 .admin-btn:hover {

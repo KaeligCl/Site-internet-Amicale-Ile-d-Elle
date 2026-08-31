@@ -6,6 +6,10 @@
 
         <title>{% block title %}Amicale Laïque de l'Île d'Elle{% endblock %}</title>
 
+        <meta name="description" content="{% block meta_description %}Association de bénévoles de l'Île-d'Elle : événements pour les enfants et les familles, location de matériel, et vie associative locale.{% endblock %}">
+
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%F0%9F%8E%AA%3C/text%3E%3C/svg%3E">
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% endblock %}
@@ -46,7 +50,7 @@
                         {% elseif route == 'app_location' %}Location
                         {% else %}Menu{% endif %}
                     </span>
-                    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+                    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
                         &#9776; </button>
                 </div>
 
