@@ -11,22 +11,39 @@
         </div>
     </aside>
 
+    {% if reservation_sent %}
+        <div class="location-banner success">
+            ✅ Votre demande de réservation a bien été envoyée ! Nous vous recontacterons rapidement.
+        </div>
+    {% elseif reservation_error == 'materiel' %}
+        <div class="location-banner error">
+            ❌ Le matériel sélectionné est introuvable. Merci de réessayer.
+        </div>
+    {% elseif reservation_error == 'formulaire' %}
+        <div class="location-banner error">
+            ❌ Votre demande n'a pas pu être envoyée : vérifiez les champs du formulaire.
+        </div>
+    {% endif %}
+
     <section class="location">
         {% for equipement in equipements %}
             <!-- On utilise des classes et des attributs data-* pour stocker les infos -->
-            <div class="materiel open-modal-btn" 
+            <div class="materiel open-modal-btn"
+                 data-equipement-id="{{ equipement.id }}"
                  data-nom="{{ equipement.nom }}"
                  data-image="{{ asset(equipement.image) }}"
                  data-prix-plein="{{ equipement.prixPlein }}"
                  data-prix-membre="{{ equipement.prixMembre }}"
                  data-description="{{ equipement.description }}">
-                
+
                 <img src="{{ asset(equipement.image) }}" alt="{{ equipement.nom }}">
                 <div class="materiel-info">
                     <h3>{{ equipement.nom }}</h3>
                     <p>Prix plein : {{ equipement.prixPlein }}€ <br> Membre : {{ equipement.prixMembre }}€</p>
                 </div>
             </div>
+        {% else %}
+            <p class="admin-empty">Aucun matériel disponible pour le moment.</p>
         {% endfor %}
 
     </section>
@@ -35,40 +52,22 @@
     <div id="modal-overlay" class="modal-overlay hidden">
         <div class="modal-card">
             <button id="close-modal-btn" class="close-btn" aria-label="Fermer">&times;</button>
-            
+
             <div class="container-detail">
                 <section class="product-info">
                     <img id="modal-img" src="" alt="">
                     <h2 id="modal-title"></h2>
                     <p id="modal-price" class="price-tag"></p>
-                    <p id="modal-description" style="color: #666; line-height: 1.6;"></p>
+                    <p id="modal-description" class="modal-desc"></p>
                 </section>
 
                 <section class="booking-form">
                     <h3>Réserver ce matériel</h3>
-                    <form action="#" method="POST">
-                        <div class="form-group">
-                            <label for="nom">Nom</label>
-                            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="prenom">Prénom</label>
-                            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="tel">Numéro de téléphone</label>
-                            <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" required>
-                        </div>
-
+                    {{ form_start(reservationForm) }}
+                        {{ form_widget(reservationForm) }}
+                        <input type="hidden" name="equipement_id" id="equipement-id-input" value="">
                         <button type="submit" class="submit-btn">Envoyer la demande</button>
-                    </form>
+                    {{ form_end(reservationForm) }}
                 </section>
             </div>
         </div>

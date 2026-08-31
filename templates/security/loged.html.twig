@@ -226,6 +226,77 @@
         </div>
     </section>
 
+
+    {# ================= DEMANDES DE LOCATION ================= #}
+
+    <section class="admin-card">
+        <div class="admin-card-title">
+            <h2>Demandes de location</h2>
+            <span class="admin-number">05</span>
+        </div>
+
+        <div class="admin-list">
+
+            {% for demande in demandesNouvelles %}
+                <div class="admin-item demande-nouvelle">
+
+                    <div class="admin-item-info">
+                        <strong>{{ demande.prenom }} {{ demande.nom }}</strong>
+                        <span>
+                            🎪 {{ demande.equipement.nom }}
+                            — du {{ demande.dateDebut|date('d/m/Y') }} au {{ demande.dateFin|date('d/m/Y') }}
+                        </span>
+                        <span>
+                            ✉️ {{ demande.email }} — 📞 {{ demande.telephone }}
+                        </span>
+                        {% if demande.message %}
+                            <span class="demande-message">« {{ demande.message }} »</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="admin-item-actions">
+                        <form method="post" action="{{ path('app_admin_demande_traitee', {'id': demande.id}) }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token('demande-traitee-' ~ demande.id) }}">
+                            <button type="submit" class="admin-button edit">Marquer traitée</button>
+                        </form>
+
+                        <form method="post" action="{{ path('app_admin_demande_delete', {'id': demande.id}) }}"
+                              onsubmit="return confirm('Supprimer cette demande ? Cette action est irréversible.');">
+                            <input type="hidden" name="_token" value="{{ csrf_token('demande-delete-' ~ demande.id) }}">
+                            <button type="submit" class="admin-button delete">Supprimer</button>
+                        </form>
+                    </div>
+
+                </div>
+            {% else %}
+                <p class="admin-empty">Aucune nouvelle demande.</p>
+            {% endfor %}
+
+            {% if demandesTraitees|length > 0 %}
+                <details class="demandes-traitees">
+                    <summary>Demandes traitées ({{ demandesTraitees|length }})</summary>
+
+                    {% for demande in demandesTraitees %}
+                        <div class="admin-item">
+                            <div class="admin-item-info">
+                                <strong>{{ demande.prenom }} {{ demande.nom }}</strong>
+                                <span>🎪 {{ demande.equipement.nom }} — {{ demande.dateDebut|date('d/m/Y') }} → {{ demande.dateFin|date('d/m/Y') }}</span>
+                            </div>
+                            <div class="admin-item-actions">
+                                <form method="post" action="{{ path('app_admin_demande_delete', {'id': demande.id}) }}"
+                                      onsubmit="return confirm('Supprimer cette demande ? Cette action est irréversible.');">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('demande-delete-' ~ demande.id) }}">
+                                    <button type="submit" class="admin-button delete">Supprimer</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </details>
+            {% endif %}
+
+        </div>
+    </section>
+
 </div>
 
 {# ============================================================ #}

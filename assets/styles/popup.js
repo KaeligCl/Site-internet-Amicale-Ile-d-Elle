@@ -19,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
             modalPrice.textContent = `Prix plein : ${btn.dataset.prixPlein}€ / membre : ${btn.dataset.prixMembre}€`;
             modalDesc.textContent = btn.dataset.description;
 
+            // Rattacher la réservation au matériel cliqué
+            const equipementInput = document.getElementById('equipement-id-input');
+            if (equipementInput) {
+                equipementInput.value = btn.dataset.equipementId || '';
+            }
+
             // Affichage de la modale
             modal.classList.remove('hidden');
         });

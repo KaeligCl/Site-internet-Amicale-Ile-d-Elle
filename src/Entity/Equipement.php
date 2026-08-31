@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\EquipementRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: EquipementRepository::class)]
 class Equipement
@@ -31,6 +33,25 @@ class Equipement
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
+
+    /**
+     * @var Collection<int, LocationRequest>
+     */
+    #[ORM\OneToMany(mappedBy: 'equipement', targetEntity: LocationRequest::class, orphanRemoval: true)]
+    private Collection $locationRequests;
+
+    public function __construct()
+    {
+        $this->locationRequests = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection<int, LocationRequest>
+     */
+    public function getLocationRequests(): Collection
+    {
+        return $this->locationRequests;
+    }
 
     public function getId(): ?int
     {

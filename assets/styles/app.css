@@ -1958,3 +1958,91 @@ dialog.admin-modal li.error {
     color: #c0392b;
     font-size: 0.85rem;
 }
+
+/* ============================================================
+   LOCATION — bannières de confirmation et demandes admin
+   ============================================================ */
+
+.location-banner {
+    max-width: 900px;
+    margin: 0 auto 20px;
+    padding: 14px 18px;
+    border-radius: var(--radius-carte);
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.location-banner.success {
+    background-color: var(--btn-add);
+    border-left: 6px solid #38b000;
+    color: #1d3b11;
+}
+
+.location-banner.error {
+    background-color: var(--btn-delete);
+    border-left: 6px solid #c9184a;
+    color: #5c0e24;
+}
+
+/* Demandes de location dans l'admin */
+
+.demande-nouvelle {
+    border-left: 5px solid #4cc9f0;
+}
+
+.demande-message {
+    font-style: italic;
+    color: var(--couleur-texte-doux);
+}
+
+.demandes-traitees {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-carte);
+}
+
+.demandes-traitees summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.demandes-traitees .admin-item {
+    margin-top: 10px;
+}
+
+/* Champs du formulaire de réservation dans la modale */
+
+.booking-form .form-group {
+    margin-bottom: 14px;
+}
+
+.booking-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+.booking-form input,
+.booking-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.booking-form ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.booking-form li {
+    color: #c0392b;
+    font-size: 0.85rem;
+}

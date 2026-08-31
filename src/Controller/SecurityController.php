@@ -13,6 +13,7 @@ use App\Form\EquipementType;
 use App\Form\ReunionType;
 
 use App\Repository\EvenementsRepository;
+use App\Repository\LocationRequestRepository;
 use App\Repository\ReunionRepository;
 use App\Repository\EquipeRepository;
 use App\Repository\EquipementRepository;
@@ -44,7 +45,8 @@ public function loged(
     EvenementsRepository $evenementsRepository,
     ReunionRepository $reunionRepository,
     EquipeRepository $equipeRepository,
-    EquipementRepository $equipementRepository
+    EquipementRepository $equipementRepository,
+    LocationRequestRepository $locationRequestRepository
 ): Response {
     $evenements = $evenementsRepository->findAll();
 
@@ -132,6 +134,9 @@ public function loged(
         'reunions' => $reunions,
         'reunionForm' => $reunionForm,
         'reunionEditForms' => $reunionEditForms,
+
+        'demandesNouvelles' => $locationRequestRepository->findNouvelles(),
+        'demandesTraitees' => $locationRequestRepository->findTraitees(),
 
         'equipe' => $membres,
         'equipeForm' => $equipeForm,
