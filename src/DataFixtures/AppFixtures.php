@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Equipement;
 use App\Entity\Evenements;
 use App\Entity\Equipe;
+use App\Entity\Reunion;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
@@ -285,7 +286,37 @@ class AppFixtures extends Fixture
         }
 
         // =============================================================
-        // 3. DATA FIXTURES : EQUIPE (16 membres)
+        // 3. DATA FIXTURES : REUNIONS (3 comptes rendus)
+        // =============================================================
+        $reunionsData = [
+            [
+                'titre' => 'Réunion du 15 Octobre 2026',
+                'date' => new \DateTime('2026-10-15'),
+                'texte' => "Lors de cette réunion, nous avons discuté des projets à venir pour l'année 2026. Les membres ont proposé plusieurs idées pour améliorer nos activités et renforcer la communauté.",
+            ],
+            [
+                'titre' => 'Réunion du 02 Novembre 2026',
+                'date' => new \DateTime('2026-11-02'),
+                'texte' => "Compte-rendu : validation du budget, choix des intervenants, organisation du matériel, logistique de la salle et préparation de la communication globale pour l'événement de fin d'année.",
+            ],
+            [
+                'titre' => 'Réunion du 20 Novembre 2026',
+                'date' => new \DateTime('2026-11-20'),
+                'texte' => 'Bilan rapide de la session précédente.',
+            ],
+        ];
+
+        foreach ($reunionsData as $data) {
+            $reunion = new Reunion();
+            $reunion->setTitre($data['titre']);
+            $reunion->setDate($data['date']);
+            $reunion->setTexte($data['texte']);
+
+            $manager->persist($reunion);
+        }
+
+        // =============================================================
+        // 4. DATA FIXTURES : EQUIPE (16 membres)
         // =============================================================
         $membresEquipeData = [
             [

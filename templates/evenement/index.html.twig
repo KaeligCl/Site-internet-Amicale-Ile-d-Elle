@@ -41,7 +41,7 @@
             <h3 class="titre-section" style="border-bottom: 3px solid #caffbf;">Événements à Suivre</h3>
             <section class="evenements">
                 {% for evenement in evenementsAvenir %}
-                    {% include 'evenements/_card_evenement.html.twig' with {'evenement': evenement} %}
+                    {% include 'evenement/_card_evenement.html.twig' with {'evenement': evenement} %}
                 {% else %}
                     <p>Aucun événement à venir.</p>
                 {% endfor %}
@@ -63,14 +63,14 @@
             <div class="gallery-modal">
                 <div class="gallery-header">
                     <h3 id="gallery-title">
-                        Photos de l'évènement : 
+                        Photos de l'évènement :
                         <a id="gallery-event-link" href="#" target="_blank" rel="noopener noreferrer" class="event-pop-link"></a>
                     </h3>
                     <button id="close-gallery-btn" class="close-btn">&times;</button>
                 </div>
-                
+
                 <div id="gallery-grid" class="gallery-grid"></div>
-                
+
                 <p class="gallery-footer-text">Cliquez sur une photo pour l'agrandir.</p>
             </div>
         </div>

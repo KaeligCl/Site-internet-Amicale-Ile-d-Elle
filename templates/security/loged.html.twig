@@ -1,3 +1,33 @@
+{% macro modal(dialogId, titre, form, submitLabel, deleteAction = null, message = null) %}
+<dialog class="admin-modal" id="{{ dialogId }}">
+    <div class="admin-modal-content">
+        <div class="admin-modal-header">
+            <h3>{{ titre }}</h3>
+            <button type="button" class="admin-modal-close" data-close aria-label="Fermer">&times;</button>
+        </div>
+
+        {% if deleteAction %}
+            <p class="admin-modal-text">{{ message }}</p>
+            <form method="post" action="{{ deleteAction }}">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ dialogId) }}">
+                <div class="admin-modal-actions">
+                    <button type="button" class="admin-button edit" data-close>Annuler</button>
+                    <button type="submit" class="admin-button delete">Oui, supprimer</button>
+                </div>
+            </form>
+        {% else %}
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <div class="admin-modal-actions">
+                    <button type="button" class="admin-button edit" data-close>Annuler</button>
+                    <button type="submit" class="admin-button add">{{ submitLabel }}</button>
+                </div>
+            {{ form_end(form) }}
+        {% endif %}
+    </div>
+</dialog>
+{% endmacro %}
+
 {% extends 'base.html.twig' %}
 
 {% block nav %}{% endblock %}
@@ -28,9 +58,9 @@
             <span class="admin-number">01</span>
         </div>
 
-        <a href="#" class="admin-add-button">
+        <button type="button" class="admin-add-button" data-modal-open="modal-evenement-add">
             + Ajouter un événement
-        </a>
+        </button>
 
         <div class="admin-list">
 
@@ -47,13 +77,13 @@
                     </div>
 
                     <div class="admin-item-actions">
-                        <a href="#" class="admin-button edit">
+                        <button type="button" class="admin-button edit" data-modal-open="modal-evenement-edit-{{ evenement.id }}">
                             Modifier
-                        </a>
+                        </button>
 
-                        <a href="#" class="admin-button delete">
+                        <button type="button" class="admin-button delete" data-modal-open="modal-evenement-delete-{{ evenement.id }}">
                             Supprimer
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -73,9 +103,9 @@
             <span class="admin-number">02</span>
         </div>
 
-        <a href="#" class="admin-add-button">
+        <button type="button" class="admin-add-button" data-modal-open="modal-reunion-add">
             + Ajouter une réunion
-        </a>
+        </button>
 
         <div class="admin-list">
 
@@ -90,13 +120,13 @@
                     </div>
 
                     <div class="admin-item-actions">
-                        <a href="#" class="admin-button edit">
+                        <button type="button" class="admin-button edit" data-modal-open="modal-reunion-edit-{{ reunion.id }}">
                             Modifier
-                        </a>
+                        </button>
 
-                        <a href="#" class="admin-button delete">
+                        <button type="button" class="admin-button delete" data-modal-open="modal-reunion-delete-{{ reunion.id }}">
                             Supprimer
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -116,9 +146,9 @@
             <span class="admin-number">03</span>
         </div>
 
-        <a href="#" class="admin-add-button">
+        <button type="button" class="admin-add-button" data-modal-open="modal-equipe-add">
             + Ajouter un membre
-        </a>
+        </button>
 
         <div class="admin-list">
 
@@ -131,13 +161,13 @@
                     </div>
 
                     <div class="admin-item-actions">
-                        <a href="#" class="admin-button edit">
+                        <button type="button" class="admin-button edit" data-modal-open="modal-equipe-edit-{{ membre.id }}">
                             Modifier
-                        </a>
+                        </button>
 
-                        <a href="#" class="admin-button delete">
+                        <button type="button" class="admin-button delete" data-modal-open="modal-equipe-delete-{{ membre.id }}">
                             Supprimer
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -157,9 +187,9 @@
             <span class="admin-number">04</span>
         </div>
 
-        <a href="#" class="admin-add-button">
+        <button type="button" class="admin-add-button" data-modal-open="modal-equipement-add">
             + Ajouter une location
-        </a>
+        </button>
 
         <div class="admin-list">
 
@@ -179,13 +209,13 @@
                     </div>
 
                     <div class="admin-item-actions">
-                        <a href="#" class="admin-button edit">
+                        <button type="button" class="admin-button edit" data-modal-open="modal-equipement-edit-{{ location.id }}">
                             Modifier
-                        </a>
+                        </button>
 
-                        <a href="#" class="admin-button delete">
+                        <button type="button" class="admin-button delete" data-modal-open="modal-equipement-delete-{{ location.id }}">
                             Supprimer
-                        </a>
+                        </button>
                     </div>
 
                 </div>
@@ -197,6 +227,71 @@
     </section>
 
 </div>
+
+{# ============================================================ #}
+{# ==================== POPUPS (DIALOGS) ====================== #}
+{# ============================================================ #}
+
+{% import _self as m %}
+
+{# --- Événements --- #}
+{{ m.modal('modal-evenement-add', 'Ajouter un événement', evenementForm, 'Ajouter') }}
+{% for evenement in evenements %}
+    {{ m.modal('modal-evenement-edit-' ~ evenement.id, 'Modifier : ' ~ evenement.titre, editForms[evenement.id], 'Enregistrer') }}
+    {{ m.modal('modal-evenement-delete-' ~ evenement.id, 'Supprimer ?', null, null,
+        path('app_admin_evenement_delete', {'id': evenement.id}),
+        'Supprimer « ' ~ evenement.titre ~ ' » ? Cette action est irréversible.') }}
+{% endfor %}
+
+{# --- Réunions --- #}
+{{ m.modal('modal-reunion-add', 'Ajouter une réunion', reunionForm, 'Ajouter') }}
+{% for reunion in reunions %}
+    {{ m.modal('modal-reunion-edit-' ~ reunion.id, 'Modifier : ' ~ reunion.titre, reunionEditForms[reunion.id], 'Enregistrer') }}
+    {{ m.modal('modal-reunion-delete-' ~ reunion.id, 'Supprimer ?', null, null,
+        path('app_admin_reunion_delete', {'id': reunion.id}),
+        'Supprimer « ' ~ reunion.titre ~ ' » ? Cette action est irréversible.') }}
+{% endfor %}
+
+{# --- Équipe --- #}
+{{ m.modal('modal-equipe-add', 'Ajouter un membre', equipeForm, 'Ajouter') }}
+{% for membre in equipe %}
+    {{ m.modal('modal-equipe-edit-' ~ membre.id, 'Modifier : ' ~ membre.nom, equipeEditForms[membre.id], 'Enregistrer') }}
+    {{ m.modal('modal-equipe-delete-' ~ membre.id, 'Supprimer ?', null, null,
+        path('app_admin_equipe_delete', {'id': membre.id}),
+        'Retirer « ' ~ membre.nom ~ ' » de l\'équipe ? Cette action est irréversible.') }}
+{% endfor %}
+
+{# --- Équipements --- #}
+{{ m.modal('modal-equipement-add', 'Ajouter une location', equipementForm, 'Ajouter') }}
+{% for location in locations %}
+    {{ m.modal('modal-equipement-edit-' ~ location.id, 'Modifier : ' ~ location.nom, equipementEditForms[location.id], 'Enregistrer') }}
+    {{ m.modal('modal-equipement-delete-' ~ location.id, 'Supprimer ?', null, null,
+        path('app_admin_equipement_delete', {'id': location.id}),
+        'Supprimer « ' ~ location.nom ~ ' » ? Cette action est irréversible.') }}
+{% endfor %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Ouvrir une modale
+        document.querySelectorAll('[data-modal-open]').forEach((btn) => {
+            btn.addEventListener('click', () => {
+                const dialog = document.getElementById(btn.dataset.modalOpen);
+                if (dialog) dialog.showModal();
+            });
+        });
+
+        // Fermer une modale (croix / Annuler / clic sur le fond)
+        document.querySelectorAll('dialog.admin-modal').forEach((dialog) => {
+            dialog.querySelectorAll('[data-close]').forEach((btn) => {
+                btn.addEventListener('click', () => dialog.close());
+            });
+
+            dialog.addEventListener('click', (e) => {
+                if (e.target === dialog) dialog.close();
+            });
+        });
+    });
+</script>
 
 </div>
 

@@ -1838,3 +1838,100 @@ footer {
         flex: 1;
     }
 }
+
+/* ============================================================
+   MODALES ADMIN (dialog natif)
+   ============================================================ */
+
+dialog.admin-modal {
+    border: none;
+    border-radius: 14px;
+    padding: 0;
+    max-width: 520px;
+    width: calc(100% - 32px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+dialog.admin-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.55);
+}
+
+.admin-modal-content {
+    padding: 24px;
+}
+
+.admin-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.admin-modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.admin-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+    padding: 4px 8px;
+}
+
+.admin-modal-close:hover {
+    color: #000;
+}
+
+.admin-modal-text {
+    margin: 0 0 20px;
+    color: #444;
+}
+
+.admin-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+dialog.admin-modal form div.form-group,
+dialog.admin-modal form .form-group,
+dialog.admin-modal .mb-3 {
+    margin-bottom: 14px;
+}
+
+dialog.admin-modal label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+}
+
+dialog.admin-modal input[type="text"],
+dialog.admin-modal input[type="url"],
+dialog.admin-modal input[type="datetime-local"],
+dialog.admin-modal textarea,
+dialog.admin-modal select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+dialog.admin-modal textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+dialog.admin-modal .form-error,
+dialog.admin-modal li.error {
+    color: #c0392b;
+    font-size: 0.85rem;
+}

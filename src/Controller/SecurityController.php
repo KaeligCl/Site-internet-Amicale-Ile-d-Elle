@@ -8,6 +8,9 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 use App\Form\EvenementsType;
+use App\Form\EquipeType;
+use App\Form\EquipementType;
+use App\Form\ReunionType;
 
 use App\Repository\EvenementsRepository;
 use App\Repository\ReunionRepository;
@@ -66,14 +69,77 @@ public function loged(
         )->createView();
     }
 
+    $reunions = $reunionRepository->findAll();
+    $membres = $equipeRepository->findAll();
+    $equipements = $equipementRepository->findAll();
+
+    $reunionForm = $this->createForm(ReunionType::class, null, [
+        'action' => $this->generateUrl('app_admin_reunion_new'),
+        'method' => 'POST',
+    ])->createView();
+
+    $equipeForm = $this->createForm(EquipeType::class, null, [
+        'action' => $this->generateUrl('app_admin_equipe_new'),
+        'method' => 'POST',
+    ])->createView();
+
+    $equipementForm = $this->createForm(EquipementType::class, null, [
+        'action' => $this->generateUrl('app_admin_equipement_new'),
+        'method' => 'POST',
+    ])->createView();
+
+    $reunionEditForms = [];
+    foreach ($reunions as $reunion) {
+        $reunionEditForms[$reunion->getId()] = $this->createForm(
+            ReunionType::class,
+            $reunion,
+            [
+                'action' => $this->generateUrl('app_admin_reunion_edit', ['id' => $reunion->getId()]),
+                'method' => 'POST',
+            ]
+        )->createView();
+    }
+
+    $equipeEditForms = [];
+    foreach ($membres as $membre) {
+        $equipeEditForms[$membre->getId()] = $this->createForm(
+            EquipeType::class,
+            $membre,
+            [
+                'action' => $this->generateUrl('app_admin_equipe_edit', ['id' => $membre->getId()]),
+                'method' => 'POST',
+            ]
+        )->createView();
+    }
+
+    $equipementEditForms = [];
+    foreach ($equipements as $equipement) {
+        $equipementEditForms[$equipement->getId()] = $this->createForm(
+            EquipementType::class,
+            $equipement,
+            [
+                'action' => $this->generateUrl('app_admin_equipement_edit', ['id' => $equipement->getId()]),
+                'method' => 'POST',
+            ]
+        )->createView();
+    }
+
     return $this->render('security/loged.html.twig', [
         'evenements' => $evenements,
         'evenementForm' => $evenementForm->createView(),
         'editForms' => $editForms,
 
-        'reunions' => $reunionRepository->findAll(),
-        'equipe' => $equipeRepository->findAll(),
-        'locations' => $equipementRepository->findAll(),
+        'reunions' => $reunions,
+        'reunionForm' => $reunionForm,
+        'reunionEditForms' => $reunionEditForms,
+
+        'equipe' => $membres,
+        'equipeForm' => $equipeForm,
+        'equipeEditForms' => $equipeEditForms,
+
+        'locations' => $equipements,
+        'equipementForm' => $equipementForm,
+        'equipementEditForms' => $equipementEditForms,
     ]);
 }
 }
